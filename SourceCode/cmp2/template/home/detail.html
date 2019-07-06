@@ -1,0 +1,30 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load replace %}
+  <!--content  -->
+{%  block content %}
+    <div class="container" >
+      <div class="jumbotron" id="grad" >
+        <h1 class="well">{{name}}</h1>
+
+        <div class="row">
+
+
+            <div class="col-md-2">
+                <img src="{% static 'imgfiles/' %}{{img_name}}" class="img-rounded" alt="Cinque Terre" width="160" height="212">
+            </div>
+            <div class="col-md-10">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2> <i class="fas fa-tv"></i></h2>
+                    </div>
+                    <div class="col-md-12">
+                      <span id ="spnScreenSize" style="font-size: 35px;">{{screen_size}}"</span>
+                    </div>
+                    <div class="col-md-12">
+                      <span class="badge badge-secondary">{{Resolution}}</span>
+                    </div>
+
+{%  endblock %}

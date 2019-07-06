@@ -1,0 +1,41 @@
+{% extends 'home/base.html' %}
+{% load replace %}
+{% load static %}
+
+{% block content %}
+<br>
+<div class="container">
+  <div class="row">
+    {% for i in contacts %}
+      <div class="col-md-3" style="padding-bottom: 30px;">
+        <div class="card" style="width:150px">
+          <a href="{% url 'prodetail' i.id %}"><img class="card-img-top" src="{% static 'imgfiles/' %}{{i.img_name}}" alt="Card image"></a>
+          <div class="card-body">
+            <!-- <h4 class="card-title">{{i.name}}</h4> -->
+           <p class="card-text">{{i.name}}</p>
+            <!-- <a href="#" class="btn btn-primary">See Profile</a>  -->
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+  <div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+            <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+</div>
+{% endblock %}
