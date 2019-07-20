@@ -15,8 +15,43 @@ if(!$conn)
   echo pg_last_error();
 }
 $link_arr = array(
-  "https://www.gsmarena.com/cat-phones-89.php",
-  "https://www.gsmarena.com/vivo-phones-98.php"
+              "https://www.gsmarena.com/blu-phones-67.php",
+              "https://www.gsmarena.com/plum-phones-72.php",
+              "https://www.gsmarena.com/apple-phones-48.php",
+              "https://www.gsmarena.com/google-phones-107.php",
+              "https://www.gsmarena.com/alcatel-phones-5.php",
+              "https://www.gsmarena.com/acer-phones-59.php",
+              "https://www.gsmarena.com/huawei-phones-58.php",
+              "https://www.gsmarena.com/honor-phones-121.php",
+              "https://www.gsmarena.com/zte-phones-62.php",
+              "https://www.gsmarena.com/infinix-phones-119.php",
+              "https://www.gsmarena.com/oppo-phones-82.php",
+              "https://www.gsmarena.com/microsoft-phones-64.php",
+              "https://www.gsmarena.com/tecno-phones-120.php",
+              "https://www.gsmarena.com/sony-phones-7.php",
+              "https://www.gsmarena.com/realme-phones-118.php",
+              "https://www.gsmarena.com/vodafone-phones-53.php",
+              "https://www.gsmarena.com/wiko-phones-96.php",
+              "https://www.gsmarena.com/lg-phones-20.php",
+              "https://www.gsmarena.com/oneplus-phones-95.php",
+              "https://www.gsmarena.com/energizer-phones-106.php",
+              "https://www.gsmarena.com/panasonic-phones-6.php",
+              "https://www.gsmarena.com/htc-phones-45.php",
+              "https://www.gsmarena.com/vivo-phones-98.php",
+              "https://www.gsmarena.com/cat-phones-89.php",
+              "https://www.gsmarena.com/yu-phones-100.php",
+              "https://www.gsmarena.com/meizu-phones-74.php",
+              "https://www.gsmarena.com/sharp-phones-23.php",
+              "https://www.gsmarena.com/verykool-phones-70.php",
+              "https://www.gsmarena.com/lenovo-phones-73.php",
+              "https://www.gsmarena.com/blackberry-phones-36.php",
+              "https://www.gsmarena.com/micromax-phones-66.php",
+              "https://www.gsmarena.com/samsung-phones-9.php",
+              "https://www.gsmarena.com/nokia-phones-1.php",
+              "https://www.gsmarena.com/lava-phones-94.php",
+              "https://www.gsmarena.com/xiaomi-phones-80.php",
+              "https://www.gsmarena.com/asus-phones-46.php",
+              "https://www.gsmarena.com/motorola-phones-4.php"
   );
 $product_arr_done = array();
 foreach($link_arr as $link1)
@@ -113,7 +148,7 @@ foreach($link_arr as $link1)
           $display=pg_escape_string($conn,$all->nodeValue);
           $dataObj->display=$display;
         }
-        $all8 = $path3->query('//span[@data-spec="displayres-hl"]');
+        $all8 = $path3->query('//div[@data-spec="displayres-hl"]');
         foreach($all8 as $all)
         {
           $resolution=pg_escape_string($conn,$all->nodeValue);
