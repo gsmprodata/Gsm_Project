@@ -32,9 +32,39 @@ def brandinfo(request,brand):
 def prodetail(request,pro_id):
     content =  brands.objects.all()
     data = get_object_or_404(allpro,id=pro_id)
-    img_name=data.img_name
-    d=data.display['Size']
-    screen_size =d
+    img_name = data.img_name
     name = data.name
-    Resolution =data.display['Resolution']
-    return render(request,"home/detail.html",{'screen_size':screen_size,'img_name':img_name,'name':name,'Resolution':Resolution})
+    screen_size =data.head['display']
+    if 'display' in data.head:
+        resolution = data.head['resolution']
+    else:
+        resolution = ""
+    if 'main_camera' in data.head:
+        main_camera = data.head['main_camera']
+    else:
+        main_camera = ''
+    if 'video_pixel' in data.head:
+        video_resolution = data.head['video_pixel']
+    else:
+        video_resolution = ''
+    if 'processor' in data.head:
+        processor= data.head['processor']
+    else :
+        processor=''
+    if 'ram' in data.head:
+        buffer_ram = data.head['ram']
+        if len(buffer_ram)<2:
+            ram = buffer_ram+str('gb')
+        else:
+            ram = buffer_ram+str('mb')
+    else:
+        ram = ''
+    if 'storage' in data.head:
+        storage = data.head['storage']
+    else :
+        storage = 'storage'
+    if 'battery' in data.head:
+        battery = data.head['battery']
+    if 'battery_type' in data.head:
+        battery_type = data.head['battery_type']
+    return render(request,"home/detail.html",{'battery_type':battery_type,'battery':battery,'storage':storage,'ram':ram,'processor':processor,'video_resolution':video_resolution,'main_camera':main_camera,'screen_size':screen_size,'img_name':img_name,'name':name,'resolution':resolution})
