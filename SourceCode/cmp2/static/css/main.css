@@ -26,9 +26,15 @@
     vertical-align: middle;
     border-style: none;
     padding: 10px;
-}
-#grad {
-  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,0.5));
-  padding: 2rem 2rem;
-
-}
+  }
+  #grad {
+    padding: 2rem 2rem;
+    background: white;
+  }
+  .phone-details{
+    background-image: linear-gradient(to right, white, #d48080);
+    padding: 10px 0px 0px 20px;
+  }
+  .phone-name{
+    background-image: linear-gradient(to right, white, #a22e2e);
+  }
