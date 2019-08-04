@@ -7,6 +7,8 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import re
 import json
+
+#search for phone to be populated
 def search_phone(request):
     if request.method =="GET":
         query = request.GET['value']
@@ -17,9 +19,12 @@ def search_phone(request):
             list.append(abc)
         return HttpResponse(json.dumps(list),content_type="application/json")
 
+#landing page
 def landing(request):
     content =  brands.objects.all()
     return render (request,'home/index.html',{'nav':content})
+ 
+#Get brand wise phone details
 def brandinfo(request,brand):
     content =  brands.objects.all()
     data = allpro.objects.filter(brand=brand)
@@ -29,6 +34,8 @@ def brandinfo(request,brand):
     data = paginator.get_page(page)
     # return render(request, 'list.html', {'contacts': contacts})
     return render (request,'home/allpro.html',{'contacts':data,'nav':content})
+ 
+#Get phone details
 def prodetail(request,pro_id):
     content =  brands.objects.all()
     data = get_object_or_404(allpro,id=pro_id)
@@ -53,10 +60,10 @@ def prodetail(request,pro_id):
         processor=''
     if 'ram' in data.head:
         buffer_ram = data.head['ram']
-        if len(buffer_ram)<2:
-            ram = buffer_ram+str('gb')
+        if len(buffer_ram)<=2:
+            ram = buffer_ram+str('GB')
         else:
-            ram = buffer_ram+str('mb')
+            ram = buffer_ram+str('MB')
     else:
         ram = ''
     if 'storage' in data.head:
@@ -67,4 +74,4 @@ def prodetail(request,pro_id):
         battery = data.head['battery']
     if 'battery_type' in data.head:
         battery_type = data.head['battery_type']
-    return render(request,"home/detail.html",{'battery_type':battery_type,'battery':battery,'storage':storage,'ram':ram,'processor':processor,'video_resolution':video_resolution,'main_camera':main_camera,'screen_size':screen_size,'img_name':img_name,'name':name,'resolution':resolution})
+    return render(request,"home/detail.html",{'battery_type':battery_type,'battery':battery,'storage':storage,'ram':ram,'processor':processor,'video_resolution':video_resolution,'main_camera':main_camera,'screen_size':screen_size,'img_name':img_name,'name':name,'resolution':resolution,'nav':content})
