@@ -23,7 +23,7 @@
   <!-- <script type="text/javascript" src="jquery/main.js"></script> -->
 <link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
 
-  
+
 </head>
 <body>
   <!-- navbar -->
@@ -127,7 +127,14 @@
                 <ul id="cmp_first_dd">
                 </ul>
               </div>
-              <p class="col-md-6">second</p>
+              <div class="col-md-6">
+                <p id="selected_2" style="font-size: 15px;"  send="" ></p>
+
+                <ul id="cmp_second_dd">
+
+                </ul>
+              </div>
+              <!-- <p class="col-md-6">second</p> -->
             </div>
           </div>
         </div>
@@ -229,6 +236,52 @@
 
         });
       }
+    });
+
+    $('#cmp_second').keyup(function(){
+      // alert('anuj');
+      search_query = $('#cmp_second').val();
+      ul=$('#cmp_second_dd');
+      ul.empty();
+      if(search_query.length>0)
+      {
+        // alert(search_query.length);
+        search_val = $('#cmp_second').val();
+        // alert(search_val);
+        $.ajax({
+          type:"GET",
+          url:"{% url 'search_phone' %}",
+          data:{'value':search_val},
+          // dataType:"json",
+          success:function(data){
+            // console.log(data);
+
+            for(i=0;i<data.length;i++)
+            {
+
+              ul.append('<li><a href="" class="click_2" id="'+data[i].id+'">'+data[i].name+'</a> </li>');
+
+            }
+            $('.click_2').click(function(e){
+              e.preventDefault();
+              var second_id = $(this).attr('id');
+              var second_name = $(this).text();
+              console.log(second_name);
+              $('#selected_2').html('<div class="alert alert-warning alert-dismissible fade show" role="alert">'+second_name+'<p  class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></p></div>');
+              $('#selected_2').attr('find',second_id);
+              ul.empty();
+
+            });
+
+          },
+          error:function(data){
+            alert('error');
+          }
+
+        });
+      }
+
+
     });
 
 
