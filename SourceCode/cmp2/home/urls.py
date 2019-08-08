@@ -8,4 +8,5 @@ urlpatterns = [
     path('<str:brand>/',home.views.brandinfo,name = "brandinfo"),
     path('pro/<int:pro_id>/',home.views.prodetail,name='prodetail'),
     path('search_phone',home.views.search_phone,name='search_phone'),
+    path('compare_phone/<int:phone1>/<int:phone2>/',home.views.compare_phone,name='compare_phone'),
 ]

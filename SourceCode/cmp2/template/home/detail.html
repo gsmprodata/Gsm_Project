@@ -3,6 +3,7 @@
 {% load replace %}
   <!--content  -->
 {%  block content %}
+
     <div class="container" >
       <div class="jumbotron" id="grad" >
         <div class="row phone-name">
@@ -79,28 +80,196 @@
       </div>
     </div>
     <div class="container">
-      <table class="table table-bordered">
+      <table class="table fdata">
         <tbody>
           <tr>
-            <th scope="row" rowspan="3">1</th>
-            <td>name</td>
-            <td>anuj</td>
+            <h2>Network</h2>
           </tr>
+          {% for name,data in body_network.items %}
           <tr>
-
-            <td>name</td>
-            <td>anuj</td>
+            <td>{{name}}</td>
+            <td>{{data}}</td>
           </tr>
-
-          <tr>
-
-            <td>name</td>
-            <td>anuj</td>
-          </tr>
-
-
+          {% endfor %}
         </tbody>
+        <table class="table fdata">
+          <tbody>
+            <tr>
+              <h2>Launch</h2>
+            </tr>
+            {% for name,data in body_launch.items %}
+            <tr>
+              <!-- <th rowspan="10">adads</th> -->
+              <td>{{name}}</td>
+              <td>{{data}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
       </table>
+      <table class="table fdata">
+        <tbody>
+          <tr>
+            <h2>Body</h2>
+          </tr>
+          {% for name,data in body_body.items %}
+          <tr>
+            <!-- <th rowspan="10">adads</th> -->
+            <td>{{name}}</td>
+            <td>{{data}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    <table class="table fdata">
+      <tbody>
+        <tr>
+          <h2>Display</h2>
+        </tr>
+
+        {% for name,data in body_display.items %}
+        <tr>
+          <!-- <th rowspan="10">adads</th> -->
+          <td>{{name}}</td>
+          <td>{{data}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  <table class="table fdata">
+    <tbody>
+      <tr>
+        <h2>Platform</h2>
+      </tr>
+
+      {% for name,data in body_platform.items %}
+      <tr>
+        <!-- <th rowspan="10">adads</th> -->
+        <td>{{name}}</td>
+        <td>{{data}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Memory</h2>
+    </tr>
+
+    {% for name,data in body_memory.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Main Camera</h2>
+    </tr>
+
+    {% for name,data in body_maincamera.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Selfie Camera</h2>
+    </tr>
+
+    {% for name,data in body_selfie.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Sound</h2>
+    </tr>
+
+    {% for name,data in body_sound.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Comms</h2>
+    </tr>
+
+    {% for name,data in body_comms.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Features</h2>
+    </tr>
+
+    {% for name,data in body_features.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Battery</h2>
+    </tr>
+
+    {% for name,data in body_battery.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table fdata">
+  <tbody>
+    <tr>
+      <h2>Misc</h2>
+    </tr>
+
+    {% for name,data in body_misc.items %}
+    <tr>
+      <!-- <th rowspan="10">adads</th> -->
+      <td>{{name}}</td>
+      <td>{{data}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
     </div>
 
 {%  endblock %}

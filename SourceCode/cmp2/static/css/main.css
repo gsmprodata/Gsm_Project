@@ -1,7 +1,7 @@
   .table td, .table th {
-    /* padding: .75rem; */
+    padding: 6px;
     vertical-align: top;
-    border-top: 1px solid #dee2e6;
+    border: 2px solid #dee2e6;
   }
   .fdata {
     vertical-align: top;
