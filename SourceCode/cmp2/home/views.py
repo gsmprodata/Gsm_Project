@@ -37,9 +37,11 @@ def brandinfo(request,brand):
 
 #Get phone details
 def compare_phone(request,phone1,phone2):
+    content =  brands.objects.all()
     print(phone1)
     print(phone2)
-    return render(request,'home/blank.html')
+    return render(request,'home/blank.html', {'nav':content})
+
 def prodetail(request,pro_id):
     content =  brands.objects.all()
     data = get_object_or_404(allpro,id=pro_id)
