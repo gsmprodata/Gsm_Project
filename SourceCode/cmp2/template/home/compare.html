@@ -3,562 +3,280 @@
 {% load replace %}
 <!--content  -->
 {%  block content %}
-
 <div class="container">
   <div class="row">
+    {% for phone in phones %}
     <div class="col-md-6">
-      <div class="container" >
-        <div class="jumbotron" id="grad" >
-          <div class="row phone-name">
-            <div class="col-md-12">
-              <h1 class="well">{{name}}</h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <img src="{% static 'imgfiles/' %}{{img_name}}" class="img-rounded" alt="Cinque Terre" width="160" height="212">
-            </div>
-            <div class="col-md-10 phone-details">
+        <div class="container">
+            <div class="jumbotron" id="grad" >
+              <div class="row phone-name">
+                <div class="col-md-12">
+                  <h1 class="well">{{phone.name}}</h1>
+                </div>
+              </div>
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
+                  <img src="{% static 'imgfiles/' %}{{phone.img_name}}" class="img-rounded" alt="Cinque Terre" width="160" height="212">
+                </div>
+                <div class="col-md-10 phone-details">
                   <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-tv"></i></h2>
+                    <div class="col-md-3">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h2> <i class="fas fa-tv"></i></h2>
+                        </div>
+                        <div class="col-md-12">
+                          <span id ="spnScreenSize" style="font-size: 35px;">{{phone.screen_size}}</span>
+                        </div>
+                        <div class="col-md-12">
+                          <span class="badge badge-secondary">{{phone.resolution}}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-12">
-                      <span id ="spnScreenSize" style="font-size: 35px;">{{screen_size}}</span>
+                    <div class="col-md-3">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h2> <i class="fas fa-camera"></i></h2>
+                        </div>
+                        <div class="col-md-12">
+                          <span style="font-size: 35px;">{{phone.main_camera}} mp</span>
+                        </div>
+                        <div class="col-md-12">
+                          <span class="badge badge-secondary">{{phone.video_resolution}}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{resolution}}</span>
+                    <div class="col-md-3">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h2> <i class="fas fa-microchip"></i></i></h2>
+                        </div>
+                        <div class="col-md-12">
+                          <span style="font-size: 35px;">{{phone.processor}}</span>
+                        </div>
+                        <div class="col-md-12">
+                          <span class="badge badge-secondary">{{phone.ram}}</span>
+                        </div>
+                        <div class="col-md-12">
+                          <span class="badge badge-secondary">{{phone.storage}}</span>
+                        </div>
+                      </div>
                     </div>
+                    <div class="col-md-3">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h2> <i class="fas fa-battery-three-quarters"></i></h2>
+                        </div>
+                        <div class="col-md-12">
+                          <span style="font-size: 35px;">{{phone.battery}}</span>
+                        </div>
+                        <div class="col-md-12">
+                          <span class="badge badge-secondary">{{phone.battery_type}}</span>
+                        </div>
+                      </div>
+                    </div>
+    
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-camera"></i></h2>
-                    </div>
-                    <div class="col-md-12">
-                      <span style="font-size: 35px;">{{main_camera}} mp</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{video_resolution}}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-microchip"></i></i></h2>
-                    </div>
-                    <div class="col-md-12">
-                      <span style="font-size: 35px;">{{processor}}</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{ram}}</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{storage}}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-battery-three-quarters"></i></h2>
-                    </div>
-                    <div class="col-md-12">
-                      <span style="font-size: 35px;">{{battery}}</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{battery_type}}</span>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
-          </div>
-
         </div>
+        <div class="container">
+          <table class="table fdata">
+            <tbody>
+              <tr>
+                <h2>Network</h2>
+              </tr>
+              {% for name,data in phone.body_network.items %}
+              <tr>
+                <td>{{name}}</td>
+                <td>{{data}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Launch</h2>
+                </tr>
+                {% for name,data in phone.body_launch.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Body</h2>
+                </tr>
+                {% for name,data in phone.body_body.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Display</h2>
+                </tr>
+
+                {% for name,data in phone.body_display.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Platform</h2>
+                </tr>
+
+                {% for name,data in phone.body_platform.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Memory</h2>
+                </tr>
+
+                {% for name,data in phone.body_memory.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Main Camera</h2>
+                </tr>
+
+                {% for name,data in phone.body_maincamera.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Selfie Camera</h2>
+                </tr>
+
+                {% for name,data in phone.body_selfie.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Sound</h2>
+                </tr>
+
+                {% for name,data in phone.body_sound.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Comms</h2>
+                </tr>
+
+                {% for name,data in phone.body_comms.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Features</h2>
+                </tr>
+
+                {% for name,data in phone.body_features.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Battery</h2>
+                </tr>
+
+                {% for name,data in phone.body_battery.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <table class="table fdata">
+              <tbody>
+                <tr>
+                  <h2>Misc</h2>
+                </tr>
+
+                {% for name,data in phone.body_misc.items %}
+                <tr>
+                  <!-- <th rowspan="10">adads</th> -->
+                  <td>{{name}}</td>
+                  <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </table>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="container" >
-        <div class="jumbotron" id="grad" >
-          <div class="row phone-name">
-            <div class="col-md-12">
-              <h1 class="well">{{name}}</h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <img src="{% static 'imgfiles/' %}{{img_name}}" class="img-rounded" alt="Cinque Terre" width="160" height="212">
-            </div>
-            <div class="col-md-10 phone-details">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-tv"></i></h2>
-                    </div>
-                    <div class="col-md-12">
-                      <span id ="spnScreenSize" style="font-size: 35px;">{{screen_size}}</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{resolution}}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-camera"></i></h2>
-                    </div>
-                    <div class="col-md-12">
-                      <span style="font-size: 35px;">{{main_camera}} mp</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{video_resolution}}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-microchip"></i></i></h2>
-                    </div>
-                    <div class="col-md-12">
-                      <span style="font-size: 35px;">{{processor}}</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{ram}}</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{storage}}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h2> <i class="fas fa-battery-three-quarters"></i></h2>
-                    </div>
-                    <div class="col-md-12">
-                      <span style="font-size: 35px;">{{battery}}</span>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="badge badge-secondary">{{battery_type}}</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
+    {% endfor%}
   </div>
-
 </div>
 
-<div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="container">
-          <table class="table fdata">
-            <tbody>
-              <tr>
-                <h2>Network</h2>
-              </tr>
-              {% for name,data in body_network.items %}
-              <tr>
-                <td>{{name}}</td>
-                <td>{{data}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Launch</h2>
-                </tr>
-                {% for name,data in body_launch.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Body</h2>
-                </tr>
-                {% for name,data in body_body.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Display</h2>
-                </tr>
-
-                {% for name,data in body_display.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Platform</h2>
-                </tr>
-
-                {% for name,data in body_platform.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Memory</h2>
-                </tr>
-
-                {% for name,data in body_memory.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Main Camera</h2>
-                </tr>
-
-                {% for name,data in body_maincamera.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Selfie Camera</h2>
-                </tr>
-
-                {% for name,data in body_selfie.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Sound</h2>
-                </tr>
-
-                {% for name,data in body_sound.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Comms</h2>
-                </tr>
-
-                {% for name,data in body_comms.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Features</h2>
-                </tr>
-
-                {% for name,data in body_features.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Battery</h2>
-                </tr>
-
-                {% for name,data in body_battery.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Misc</h2>
-                </tr>
-
-                {% for name,data in body_misc.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      <div class="col-md-6">
-
-        <div class="container">
-          <table class="table fdata">
-            <tbody>
-              <tr>
-                <h2>Network</h2>
-              </tr>
-              {% for name,data in body_network.items %}
-              <tr>
-                <td>{{name}}</td>
-                <td>{{data}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Launch</h2>
-                </tr>
-                {% for name,data in body_launch.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Body</h2>
-                </tr>
-                {% for name,data in body_body.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Display</h2>
-                </tr>
-
-                {% for name,data in body_display.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Platform</h2>
-                </tr>
-
-                {% for name,data in body_platform.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Memory</h2>
-                </tr>
-
-                {% for name,data in body_memory.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Main Camera</h2>
-                </tr>
-
-                {% for name,data in body_maincamera.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Selfie Camera</h2>
-                </tr>
-
-                {% for name,data in body_selfie.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Sound</h2>
-                </tr>
-
-                {% for name,data in body_sound.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Comms</h2>
-                </tr>
-
-                {% for name,data in body_comms.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Features</h2>
-                </tr>
-
-                {% for name,data in body_features.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Battery</h2>
-                </tr>
-
-                {% for name,data in body_battery.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-            <table class="table fdata">
-              <tbody>
-                <tr>
-                  <h2>Misc</h2>
-                </tr>
-
-                {% for name,data in body_misc.items %}
-                <tr>
-                  <!-- <th rowspan="10">adads</th> -->
-                  <td>{{name}}</td>
-                  <td>{{data}}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-
-
-      </div>
-
-    </div>
-</div>
 {%  endblock %}
