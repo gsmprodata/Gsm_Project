@@ -38,3 +38,9 @@
   .phone-name{
     background-image: linear-gradient(to right, white, #a22e2e);
   }
+  .padding-well{
+      padding-left: 10px;
+  }
+  .margin-bot{
+    margin-bottom: 10px;
+  }

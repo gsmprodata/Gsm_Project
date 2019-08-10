@@ -10,17 +10,18 @@
         <div class="container">
             <div class="jumbotron" id="grad" >
               <div class="row phone-name">
-                <div class="col-md-12">
-                  <h1 class="well">{{phone.name}}</h1>
+                <div class="col-md-4">
+                    <img src="{% static 'imgfiles/' %}{{phone.img_name}}" class="img-rounded" alt="Cinque Terre" width="160" height="212">
                 </div>
+                <div class="col-md-8">
+                  <h1 class="well padding-well" >{{phone.name}}</h1>
+                </div>
+
               </div>
               <div class="row">
-                <div class="col-md-2">
-                  <img src="{% static 'imgfiles/' %}{{phone.img_name}}" class="img-rounded" alt="Cinque Terre" width="160" height="212">
-                </div>
-                <div class="col-md-10 phone-details">
+                <div class="col-md-12 phone-details">
                   <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4 margin-bot">
                       <div class="row">
                         <div class="col-md-12">
                           <h2> <i class="fas fa-tv"></i></h2>
@@ -33,7 +34,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4 margin-bot">
                       <div class="row">
                         <div class="col-md-12">
                           <h2> <i class="fas fa-camera"></i></h2>
@@ -46,35 +47,36 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4 margin-bot">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h2> <i class="fas fa-battery-three-quarters"></i></h2>
+                          </div>
+                          <div class="col-md-12">
+                            <span style="font-size: 35px;">{{phone.battery}}</span>
+                          </div>
+                          <div class="col-md-12">
+                            <span class="badge badge-secondary">{{phone.battery_type}}</span>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col-md-12 margin-bot">
                       <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-3">
                           <h2> <i class="fas fa-microchip"></i></i></h2>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-9">
                           <span style="font-size: 35px;">{{phone.processor}}</span>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                           <span class="badge badge-secondary">{{phone.ram}}</span>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                           <span class="badge badge-secondary">{{phone.storage}}</span>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-3">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <h2> <i class="fas fa-battery-three-quarters"></i></h2>
-                        </div>
-                        <div class="col-md-12">
-                          <span style="font-size: 35px;">{{phone.battery}}</span>
-                        </div>
-                        <div class="col-md-12">
-                          <span class="badge badge-secondary">{{phone.battery_type}}</span>
-                        </div>
-                      </div>
-                    </div>
+                    
     
                   </div>
                 </div>
