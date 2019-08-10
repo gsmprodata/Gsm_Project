@@ -1,4 +1,7 @@
-  .table td, .table th {
+  body{
+   background-color: #ececec;
+ }
+ .table td, .table th {
     padding: 6px;
     vertical-align: top;
     border: 2px solid #dee2e6;
@@ -44,3 +47,19 @@
   .margin-bot{
     margin-bottom: 10px;
   }
+  .container{
+    background-color: white;
+    padding-top:20px;
+  }
+  .navbar{
+    background-color: #326690!important;
+  }
+  .outline-btn{
+    color:white;
+    border-color: white;
+  }
+  .outline-btn:hover{
+    color:green;
+    background-color: white;
+  }
+  
