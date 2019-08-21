@@ -7,6 +7,7 @@
   padding-bottom: 1.5rem;
   padding-top:1.5rem;
   border-radius:10px;
+  background: #ececec;
  }
  .table td, .table th {
     padding: 6px;
@@ -58,7 +59,7 @@
     background-color: white;
   }
   .navbar{
-    background-color: #326690!important;
+    background-color: #24435d!important;
   }
   .outline-btn{
     color:white;
@@ -108,7 +109,7 @@
     transform: scale(1.1); 
   }
   .padding-brands{
-    padding-left:25px;
+    padding-left:3rem;
   }
   .page-footer {
     padding-top: unset!important;
