@@ -1,19 +1,24 @@
 {% extends 'home/base.html' %}
+{% load static %}
 <!-- {% load static %} -->
 
-  <!-- navbar end -->
-  {% block content %}
-  <div class="container">
-    <div class="row abc">
-      {% for i in nav %}
-      <!-- <h1>{{i.name}}</h1> -->
+<!-- navbar end -->
+{% block content %}
+<div class="container">
+  <div class="row padding-brands">
+    {% for i in nav %}
+    <!-- <h1>{{i.name}}</h1> -->
+    <div class="content-inline">
 
-      <div  class="col-md-3"><a href="{% url 'brandinfo' i.name %}"><img src="{{i.image.url}}" class="img-circle img1" alt="Cinque Terre" width="200" height="120"> </a></div>
-
-      {% endfor%}
-      <br>
+      <a href="{% url 'brandinfo' i.name %}">
+        <img src="{{i.image.url}}" class="img-circle img1" alt="{{i.name}}">
+      </a>
 
     </div>
-    <button type="button" id='show'  class="btn btn-link view_more">view </button>
+    {% endfor%}
+    <br>
+
   </div>
-  {% endblock %}
+</div>
+
+{% endblock %}

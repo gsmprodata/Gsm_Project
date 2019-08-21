@@ -1,6 +1,13 @@
   body{
    background-color: #ececec;
  }
+ body > .container{
+  margin-top:1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-top:1.5rem;
+  border-radius:10px;
+ }
  .table td, .table th {
     padding: 6px;
     vertical-align: top;
@@ -49,7 +56,6 @@
   }
   .container{
     background-color: white;
-    padding-top:20px;
   }
   .navbar{
     background-color: #326690!important;
@@ -62,4 +68,112 @@
     color:green;
     background-color: white;
   }
-  
+  .img-circle{
+    width: 125px;
+    height: 80px;
+  }
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+  .content-inline{
+    display: inline-block;
+    width: 135px;
+    margin: 6px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background: #fff;
+    min-height: 100px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+  }
+  .content-inline:hover{
+    box-shadow: 10px 10px 5px grey;
+    transform: scale(1.1); 
+  }
+  .padding-brands{
+    padding-left:25px;
+  }
+  .page-footer {
+    padding-top: unset!important;
+    background-position: 50% 50%;
+    background-color: #272c35;
+  }
+  .page-footer .container{
+    background-color: unset;
+    color:whitesmoke;
+    
+  }
+  .text-white {
+    color: #ffffff !important;
+}
+.mbr-bold {
+  font-weight: 700;
+}
+  .media-container-row{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .foot-menu{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .foot-menu li{
+    padding: 0 1rem 0.5rem 1rem;
+  }
+  .soc-item{
+    margin: 0.5rem;
+    margin-bottom:0;
+
+  }
+  .soc-item a{
+    margin: 0;
+    opacity: .5;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  .social-list{
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+  .soc-item .fab {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+  .soc-item a:hover{
+    opacity: 1;;
+}
+.text-white:hover{
+  opacity: 0.5;
+  text-decoration: none;
+}
