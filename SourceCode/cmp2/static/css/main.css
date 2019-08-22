@@ -109,7 +109,8 @@
     transform: scale(1.1); 
   }
   .padding-brands{
-    padding-left:3rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
   }
   .page-footer {
     padding-top: unset!important;
