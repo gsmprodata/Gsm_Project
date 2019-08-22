@@ -178,3 +178,34 @@
   opacity: 0.5;
   text-decoration: none;
 }
+
+.block-content{
+  display: inline-block
+}
+.block-content .card{
+  width: 200px;
+  padding-top: 1rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+}
+.block-content .card a{
+  display: flex;
+  justify-content: center;
+  padding-bottom:1rem;
+}
+.block-content .card .card-body{
+  background: #16324a;
+  color: white;
+  padding: 10px 0px 10px 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.block-content .card:hover{
+  box-shadow: 10px 10px 5px grey;
+  transform: scale(1.1); 
+}
+.card-img-top{
+  width: 135px;
+}

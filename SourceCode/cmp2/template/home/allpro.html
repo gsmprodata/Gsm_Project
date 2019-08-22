@@ -6,8 +6,8 @@
 <div class="container">
   <div class="row">
     {% for i in contacts %}
-      <div class="col-md-3" style="padding-bottom: 30px;">
-        <div class="card" style="width:150px">
+      <div class=" block-content" style="padding-bottom: 30px;">
+        <div class="card">
           <a href="{% url 'prodetail' i.id %}"><img class="card-img-top" src="{% static 'imgfiles/' %}{{i.img_name}}" alt="Card image"></a>
           <div class="card-body">
             <!-- <h4 class="card-title">{{i.name}}</h4> -->
