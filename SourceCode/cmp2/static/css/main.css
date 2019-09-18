@@ -214,6 +214,7 @@
 }
 .fdata{
   display: none;
+  margin: 0;
 }
 .data-header{
   cursor: pointer;
