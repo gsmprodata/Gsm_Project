@@ -218,6 +218,8 @@
 }
 .data-header{
   cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
 }
 .margin-bottm{
   margin-bottom:1rem;
