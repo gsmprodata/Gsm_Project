@@ -43,11 +43,11 @@
     background: white;
   }
   .phone-details{
-    background-image: linear-gradient(to right, white, #d48080);
+    background-image: linear-gradient(to right, white, #797070);
     padding: 10px 0px 0px 20px;
   }
   .phone-name{
-    background-image: linear-gradient(to right, white, #a22e2e);
+    background-image: linear-gradient(to right, white, #56575e);
   }
   .padding-well{
       padding-left: 10px;
@@ -208,4 +208,13 @@
 }
 .card-img-top{
   width: 135px;
+}
+.padding-zero{
+  padding:0!important;
+}
+.fdata{
+  display: none;
+}
+.data-header{
+  cursor: pointer;
 }
