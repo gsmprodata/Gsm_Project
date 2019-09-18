@@ -1,5 +1,5 @@
 $(document).ready(function(){
     $('.data-header').click(function(){
-        $(this.nextSibling).toggle()
+        $(this.nextElementSibling).toggle()
     });
 });

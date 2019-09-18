@@ -81,27 +81,30 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Network</h2>
-                  </tr>
-                  {% for name,data in body_network.items %}
-                  <tr>
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+        <div class="col-md-6 margin-bottm">
+            <div class="card">
+                <div class="card-header data-header">
+                    Network
+                </div>
+              <table class="table fdata">
+                  <tbody>
+                    {% for name,data in body_network.items %}
+                    <tr>
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 margin-bottm">
+            <div class="card">
+                <div class="card-header data-header">
+                    Launch
+                </div>
             <table class="table fdata">
                 <tbody>
-                  <tr>
-                    <h2 class='data-header'>Launch</h2>
-                  </tr>
                   {% for name,data in body_launch.items %}
                   <tr>
                     <!-- <th rowspan="10">adads</th> -->
@@ -111,192 +114,205 @@
                   {% endfor %}
                 </tbody>
             </table>
+          </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Body</h2>
-                  </tr>
-                  {% for name,data in body_body.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+        <div class="col-md-6 margin-bottm">
+            <div class="card">
+              <div class="card-header data-header">
+                  Body
+              </div>
+              <table class="table fdata">
+                  <tbody>
+                    {% for name,data in body_body.items %}
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Display</h2>
-                  </tr>
-          
-                  {% for name,data in body_display.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+        <div class="col-md-6 margin-bottm">
+            <div class="card">
+              <div class="card-header data-header">
+                  Display
+              </div>
+              <table class="table fdata">
+                  <tbody>
+                    {% for name,data in body_display.items %}
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Platform</h2>
-                  </tr>
-            
+        <div class="col-md-6 margin-bottm">
+            <div class="card">
+              <div class="card-header data-header">
+                  Platform
+              </div>
+              <table class="table fdata">
+                  <tbody>
                   {% for name,data in body_platform.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Memory</h2>
-                  </tr>
-              
+        <div class="col-md-6 margin-bottm">
+            <div class="card">
+              <div class="card-header data-header">
+                  Memory
+              </div>
+              <table class="table fdata">
+                  <tbody>
                   {% for name,data in body_memory.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
               </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Main Camera</h2>
-                  </tr>
-              
-                  {% for name,data in body_maincamera.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
+        <div class="col-md-6 margin-bottm">
+          <div class="card">
+              <div class="card-header data-header">
+                  Main Camera 
+              </div>
+              <table class="table fdata">
+                  <tbody>
+                {% for name,data in body_maincamera.items %}
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
               </table>
+            </div>  
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Selfie Camera</h2>
-                  </tr>
-              
+        <div class="col-md-6 margin-bottm">
+          <div class="card">
+              <div class="card-header data-header">
+                  Selfie Camera
+              </div>
+              <table class="table fdata">
+                  <tbody>
                   {% for name,data in body_selfie.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>  
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Sound</h2>
-                  </tr>
-              
+        <div class="col-md-6 margin-bottm">
+          <div class="card">
+              <div class="card-header data-header">
+                  Sound
+              </div>
+              <table class="table fdata">
+                  <tbody>
                   {% for name,data in body_sound.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Comms</h2>
-                  </tr>
-              
+        <div class="col-md-6 margin-bottm">
+          <div class="card">
+              <div class="card-header data-header">
+                  Comms
+              </div>
+              <table class="table fdata">
+                  <tbody>
                   {% for name,data in body_comms.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Features</h2>
-                  </tr>
-              
+        <div class="col-md-6 margin-bottm">
+          <div class="card">
+              <div class="card-header data-header">
+                  Features
+              </div>
+              <table class="table fdata">
+                  <tbody>
                   {% for name,data in body_features.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Battery</h2>
-                  </tr>
-              
-                  {% for name,data in body_battery.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+        <div class="col-md-6 margin-bottm">
+            <div class="card">
+              <div class="card-header data-header">
+                  Battery
+              </div>
+              <table class="table fdata">
+                  <tbody>
+                    {% for name,data in body_battery.items %}
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-            <table class="table fdata">
-                <tbody>
-                  <tr>
-                    <h2 class='data-header'>Misc</h2>
-                  </tr>
-              
+        <div class="col-md-6 margin-bottm">
+          <div class="card">
+              <div class="card-header data-header">
+                  Misc
+              </div>
+              <table class="table fdata">
+                  <tbody>
                   {% for name,data in body_misc.items %}
-                  <tr>
-                    <!-- <th rowspan="10">adads</th> -->
-                    <td>{{name}}</td>
-                    <td>{{data}}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-            </table>
+                    <tr>
+                      <!-- <th rowspan="10">adads</th> -->
+                      <td>{{name}}</td>
+                      <td>{{data}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+              </table>
+            </div>
         </div>
       </div>
     </div>
