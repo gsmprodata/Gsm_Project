@@ -27,5 +27,7 @@ class allpro(models.Model):
     misc = models.CharField(max_length=5000)
     img_name = models.CharField(max_length=200,default='abc')
     head = models.CharField(max_length = 500)
+    flipkart_url = models.CharField(max_length=1000)
+    link_tried = models.BooleanField()
     def __str__(self):
         return  self.name

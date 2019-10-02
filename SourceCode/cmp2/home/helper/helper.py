@@ -1,4 +1,6 @@
 #filter phone details
+error_msg = 'No record found'
+
 def filterPhoneDetails(data):
     img_name = data.img_name
     name = data.name
