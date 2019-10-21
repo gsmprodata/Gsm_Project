@@ -9,7 +9,6 @@ from django.http import JsonResponse
 import re
 import json
 from collections import OrderedDict
-from .helper.flipkart_price_track import flipkart_data
 
 #search for phone to be populated
 def search_phone(request):
