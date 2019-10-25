@@ -191,20 +191,24 @@
         <div class="col-md-6 margin-bottm">
           <div class="card">
               <div class="card-header data-header">
-                  Main Camera 
+                  Main Camera
               </div>
               <table class="table fdata">
                   <tbody>
-                {% for name,data in body_maincamera.items %}
+                {% for name,data_arr in body_maincamera.items %}
                     <tr>
                       <!-- <th rowspan="10">adads</th> -->
                       <td>{{name}}</td>
-                      <td>{{data}}</td>
+                      <td>
+                        {% autoescape off %}
+                          {{data_arr}}
+                        {% endautoescape  %}
+                      </td>
                     </tr>
                     {% endfor %}
                   </tbody>
               </table>
-            </div>  
+            </div>
         </div>
         <div class="col-md-6 margin-bottm">
           <div class="card">
@@ -222,7 +226,7 @@
                     {% endfor %}
                   </tbody>
               </table>
-            </div>  
+            </div>
         </div>
         <div class="col-md-6 margin-bottm">
           <div class="card">

@@ -1,6 +1,14 @@
 #filter phone details
 error_msg = 'No record found'
 
+def replace_linebreak(value):
+    replace_item = {}
+    for name, data in value.items():
+        replace_item[name] = data.replace('\n', '<br/>')
+    value = replace_item
+    return value
+
+
 def filterPhoneDetails(data):
     img_name = data.img_name
     name = data.name
@@ -42,4 +50,12 @@ def filterPhoneDetails(data):
     else:
         battery_type=''
     # end head
-    return {'body_misc':data.misc,'body_battery':data.battery,'body_features':data.features,'body_comms':data.comms,'body_sound':data.sound,'body_selfie':data.selfiecamera,'body_maincamera':data.maincamera,'body_memory':data.memory,'body_platform':data.platform,'body_display':data.display,'body_body':data.body,'body_launch':data.launch,'body_network':data.network,'battery_type':battery_type,'battery':battery,'storage':storage,'ram':ram,'processor':processor,'video_resolution':video_resolution,'main_camera':main_camera,'screen_size':screen_size,'img_name':img_name,'name':name,'resolution':resolution}
+    return {'body_misc':data.misc,'body_battery':data.battery,
+    'body_features':data.features,'body_comms':data.comms,
+    'body_sound':data.sound,'body_selfie':data.selfiecamera,
+    'body_maincamera':replace_linebreak(data.maincamera),'body_memory':data.memory,
+    'body_platform':data.platform,'body_display':data.display,
+    'body_body':data.body,'body_launch':data.launch,'body_network':data.network,
+    'battery_type':battery_type,'battery':battery,'storage':storage,'ram':ram,
+    'processor':processor,'video_resolution':video_resolution,'main_camera':main_camera,
+    'screen_size':screen_size,'img_name':img_name,'name':name,'resolution':resolution}
