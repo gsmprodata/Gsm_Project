@@ -1,0 +1,226 @@
+  body{
+   background-color: #ececec;
+ }
+ body > .container{
+  margin-top:1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-top:1.5rem;
+  border-radius:10px;
+  background: #ececec;
+ }
+ .table td, .table th {
+    padding: 6px;
+    vertical-align: top;
+    border: 2px solid #dee2e6;
+  }
+  .fdata {
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  .demo-card-image.mdl-card {
+    width: 200px;
+    height: 200px;
+    /* background: url('abc.jpg') center / cover; */
+  }
+  .demo-card-image > .mdl-card__actions {
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .demo-card-image__filename {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .img1 {
+    vertical-align: middle;
+    border-style: none;
+    padding: 10px;
+  }
+  #grad {
+    padding: 2rem 2rem;
+    background: white;
+  }
+  .phone-details{
+    background-image: linear-gradient(to right, white, #797070);
+    padding: 10px 0px 0px 20px;
+  }
+  .phone-name{
+    background-image: linear-gradient(to right, white, #56575e);
+  }
+  .padding-well{
+      padding-left: 10px;
+  }
+  .margin-bot{
+    margin-bottom: 10px;
+  }
+  .container{
+    background-color: white;
+  }
+  .navbar{
+    background-color: #24435d!important;
+  }
+  .outline-btn{
+    color:white;
+    border-color: white;
+  }
+  .outline-btn:hover{
+    color:green;
+    background-color: white;
+  }
+  .img-circle{
+    width: 90%;
+    margin-left: 5%;
+  }
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+  .content-inline{
+    display: inline-block;
+    width: 13%;
+    margin: 0.64%;
+    border: 1px solid #ccc;
+    background: #fff;
+    min-height: 100px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+  }
+  .content-inline:hover{
+    box-shadow: 5px 5px 5px grey;
+    transform: scale(1.1); 
+  }
+  .padding-brands{
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+  .page-footer {
+    padding-top: unset!important;
+    background-position: 50% 50%;
+    background-color: #272c35;
+  }
+  .page-footer .container{
+    background-color: unset;
+    color:whitesmoke;
+    
+  }
+  .text-white {
+    color: #ffffff !important;
+}
+.mbr-bold {
+  font-weight: 700;
+}
+  .media-container-row{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .foot-menu{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .foot-menu li{
+    padding: 0 1rem 0.5rem 1rem;
+  }
+  .soc-item{
+    margin: 0.5rem;
+    margin-bottom:0;
+
+  }
+  .soc-item a{
+    margin: 0;
+    opacity: .5;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
+  .social-list{
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+  .soc-item .fab {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+  .soc-item a:hover{
+    opacity: 1;;
+}
+.text-white:hover{
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.block-content{
+  display: inline-block;
+  width: 18%;
+  margin: 1%;
+}
+.block-content .card{
+  padding-top: 1rem;
+  border-radius: 10px;
+}
+.block-content .card a{
+  display: flex;
+  justify-content: center;
+  padding-bottom:1rem;
+}
+.block-content .card .card-body{
+  background: #16324a;
+  color: white;
+  padding: 10px 0px 10px 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.block-content .card:hover{
+  box-shadow: 5px 5px 5px grey;
+  transform: scale(1.02); 
+}
+.card-img-top{
+  width: 135px;
+}
+.padding-zero{
+  padding:0!important;
+}
+.fdata{
+  display: none;
+  margin: 0;
+}
+.data-header{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+.margin-bottm{
+  margin-bottom:1rem;
+}
