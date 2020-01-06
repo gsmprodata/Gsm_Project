@@ -54,7 +54,7 @@ def search_phone():
     return return_data
 
 @app.route('/compare_phone',methods=['GET'])
-def search_phone():
+def compare_phone():
     pass
 
 
