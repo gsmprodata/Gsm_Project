@@ -49,4 +49,12 @@ def search_phone():
 
 @app.route('/compare_phone',methods=['GET'])
 def compare_phone():
-    pass
+    nav = db.session.query(brand).all()
+    phoneOneId = request.args.get('phone1')
+    phoneTwoId = request.args.get('phone2')
+    dataPhoneOne = filterPhoneDetails(db.session.query(allpro).get_or_404(phoneOneId))
+    dataPhoneTwo = filterPhoneDetails(db.session.query(allpro).get_or_404(phoneTwoId))
+    jsonData = {}
+    jsonData['phones']  = [dataPhoneOne, dataPhoneTwo]
+    jsonData['nav'] = nav
+    return render_template('compare.html', jsonData = jsonData)
