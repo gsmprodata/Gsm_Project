@@ -57,7 +57,6 @@
           data:{'value':search_val},
           // dataType:"json",
           success:function(data){
-            data = JSON.parse(data);
             for(i=0;i<data.length;i++)
             {
               ul.append('<li><a href="" class="click_1" id="'+data[i].id+'">'+data[i].name+'</a> </li>');
@@ -94,7 +93,6 @@
           data:{'value':search_val},
           // dataType:"json",
           success:function(data){
-            data = JSON.parse(data);
             for(i=0;i<data.length;i++)
             {
               ul.append('<li><a href="" class="click_2" id="'+data[i].id+'">'+data[i].name+'</a> </li>');
@@ -118,7 +116,7 @@
     $('#phone_compare_button').click(function(){
       var first_phone_id = $('#selected_1').attr('find');
       var second_phone_id = $('#selected_2').attr('find');
-      let url = `${compareUrl}?phone1=${first_phone_id}&phone2=${second_phone_id}`;
+      let url = `${compareUrl}${first_phone_id}/${second_phone_id}`;
       window.location.href = url;
     });
   });
