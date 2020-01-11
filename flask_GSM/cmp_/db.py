@@ -8,3 +8,4 @@ Base = automap_base()
 Base.prepare(db.engine,reflect=True)
 brand = Base.classes.home_brands #make id in home_brands primary key 
 allpro = Base.classes.home_allpro
+top_phones = Base.classes.home_top_phones

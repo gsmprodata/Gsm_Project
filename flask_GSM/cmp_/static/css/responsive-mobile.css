@@ -8,16 +8,17 @@
         width: auto;
     }
     .block-content{
-        margin-left: 2%;
-        margin-right: 2%;
-        width: 46%;
+        margin-left: 7%;
+        margin-right: 7%;
+        width: 36%;
     }
     .card-img-top {
         width: 110px;
     }
     .content-inline{
-        width: 42%;
-        margin-left: 4%;
-        margin-right: 4%;
+        width: 35%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+        min-height: 200px;
     }
 }
