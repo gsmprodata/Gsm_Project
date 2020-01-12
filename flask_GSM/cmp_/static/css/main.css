@@ -286,11 +286,11 @@ left: 10px;
 
 .corousel-container .right-arrow, .corousel-container .left-arrow{
   z-index: 22;
+  margin-top: 9%;
 }
 
 .corousel-container .prev-next-button{
   position: absolute;
-  top: 40%;
   width: 44px;
   height: 44px;
   border: none;
