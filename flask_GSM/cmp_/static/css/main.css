@@ -318,3 +318,7 @@ left: 10px;
     padding-left: 10px;
     color: #3c3636;
 }
+
+.hidden{
+  display: none;
+}

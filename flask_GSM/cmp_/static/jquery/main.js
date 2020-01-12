@@ -132,6 +132,7 @@
         $row = $($parent[0]).parent('.row');
         let $sibling = $($parent[0]).siblings('.block-content');
         sibling_width = $sibling.length > 0 ? $($sibling[0]).outerWidth(true) : 50;
+        $parent.siblings('.slider-arrow').show();
        }
        current_scroll = $row.scrollLeft();
        if(current_scroll - sibling_width <= 0){
@@ -151,9 +152,10 @@
        $row = $($parent[0]).parent('.row');
        let $sibling = $($parent[0]).siblings('.block-content');
        sibling_width = $sibling.length > 0 ? $($sibling[0]).outerWidth(true) : 50;
+       $parent.siblings('.slider-arrow').show();
       }
       current_scroll = $row.scrollLeft();
-      scroll_width = $row.length > 0 ? $row[0].scrollWidth : 0;
+      scroll_width = $row.length > 0 ? $row[0].scrollWidth - $row[0].clientWidth : 0;
       if(current_scroll + sibling_width <= scroll_width){
         $row.animate( {scrollLeft:current_scroll + sibling_width}, animateDelay, 'swing');
       }else{
