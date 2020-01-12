@@ -313,3 +313,8 @@ left: 10px;
 .corousel-container .prev-next-button .arrow {
   fill: #efeaea;
 }
+
+.trending-phones-heading{
+    padding-left: 10px;
+    color: #3c3636;
+}
