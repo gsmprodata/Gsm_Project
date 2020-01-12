@@ -1,6 +1,6 @@
   $(document).ready(function(){
     var count = $('.abc div');
-    var animateDelay = 500;
+    var animateDelay = 300;
     var searchUrl = $('#inpUrls').data('searchUrl');
     var compareUrl = $('#inpUrls').data('compareUrl');
     for(i=8;i<count.length;i++)
