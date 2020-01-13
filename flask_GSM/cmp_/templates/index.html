@@ -4,60 +4,60 @@
 {% block content %}
 
 
-<div class="corousel-container">
-  <div class="trending-phones-heading">
-    <h2>
-      Trending Phones
-    </h2>
-   
-  </div>
-  <div class="row">
-    <div class="left-arrow slider-arrow hidden">
-      <button class="prev-next-button previous" type="button"  aria-label="previous" >
-        <svg viewBox="0 0 100 100">
-          <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path>
+<div class="corousel-container" style="background-image:url('{{url_for('static',filename='imgfiles/Background/corousel_image.jpg')  }}')">
+    <div class=" trending-phones-heading ">
+        <h2>
+            Trending Phones
+        </h2>
+
+    </div>
+    <div class="row ">
+        <div class="left-arrow slider-arrow hidden ">
+            <button class="prev-next-button previous " type="button " aria-label="previous ">
+        <svg viewBox="0 0 100 100 ">
+          <path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z " class="arrow "></path>
       </svg>
     </button>
-    </div>
-
-    <div class="right-arrow slider-arrow">
-      <button class="prev-next-button next" type="button"  aria-label="next" >
-        <svg viewBox="0 0 100 100">
-          <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180)"></path>
-      </svg>
-    </button>
-    </div>
-      {% for phone in top_phone_json %}
-
-        <div class=" block-content" >
-          <div class="card">
-            <a href="{{ url_for('prodetail',pro_id=phone.phone_id)}}">
-              <img src="{{ url_for('static',filename='imgfiles/'+phone.img_name)}}" class="img-circle img1" alt="{{phone.name}}">
-            </a>
-            <div class="card-body">
-            <p class="card-text">{{phone.name}}</p>
-            </div>
-          </div>
         </div>
-      {% endfor%}
-  </div>
+
+        <div class="right-arrow slider-arrow ">
+            <button class="prev-next-button next " type="button " aria-label="next ">
+        <svg viewBox="0 0 100 100 ">
+          <path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z " class="arrow " transform="translate(100, 100) rotate(180) "></path>
+      </svg>
+    </button>
+        </div>
+        {% for phone in top_phone_json %}
+
+        <div class=" block-content ">
+            <div class="card ">
+                <a href="{{ url_for( 'prodetail',pro_id=phone.phone_id)}} ">
+                    <img src="{{ url_for( 'static',filename='imgfiles/' +phone.img_name)}} " class="img-circle img1 " alt="{{phone.name}} ">
+                </a>
+                <div class="card-body ">
+                    <p class="card-text ">{{phone.name}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
 </div>
 
-<div class="container-block">
-  <div class="row">
-    {% for i in nav %}
-    <!-- <h1>{{i.name}}</h1> -->
-    <div class="content-inline">
+<div class="container-block ">
+    <div class="row ">
+        {% for i in nav %}
+        <!-- <h1>{{i.name}}</h1> -->
+        <div class="content-inline ">
 
-      <a href="{{ url_for('brandinfo',brand_name=i.name)}}">
-        <img src="{{ url_for('static',filename='logo/'+i.image)}}" class="img-circle img1" alt="{{i.name}}">
-      </a>
+            <a href="{{ url_for( 'brandinfo',brand_name=i.name)}} ">
+                <img src="{{ url_for( 'static',filename='logo/' +i.image)}} " class="img-circle img1 " alt="{{i.name}} ">
+            </a>
+
+        </div>
+        {% endfor%}
+        <br>
 
     </div>
-    {% endfor%}
-    <br>
-
-  </div>
 </div>
 
 {% endblock %}
