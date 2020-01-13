@@ -1,0 +1,16 @@
+Update home_allpro 
+SET release_month =  Case  
+WHEN (launch -> 'Announced'):: text ilike '%december%' THEN 12
+WHEN (launch -> 'Announced'):: text ilike '%november%' THEN 11
+WHEN (launch -> 'Announced'):: text ilike '%october%' THEN 10
+WHEN (launch -> 'Announced'):: text ilike '%september%' THEN 9
+WHEN (launch -> 'Announced'):: text ilike '%august%' THEN 8
+WHEN (launch -> 'Announced'):: text ilike '%july%' THEN 7
+WHEN (launch -> 'Announced'):: text ilike '%june%' THEN 6
+WHEN (launch -> 'Announced'):: text ilike '%may%' THEN 5
+WHEN (launch -> 'Announced'):: text ilike '%april%' THEN 4
+WHEN (launch -> 'Announced'):: text ilike '%march%' THEN 3
+WHEN (launch -> 'Announced'):: text ilike '%February%' THEN 2
+WHEN (launch -> 'Announced'):: text ilike '%january%' THEN 1
+ELSE NULL
+END

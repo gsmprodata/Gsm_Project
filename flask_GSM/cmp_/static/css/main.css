@@ -223,12 +223,12 @@ body>.container {
 
 .block-content {
     display: inline-block;
-    margin: 1.1%;
+    margin: 0.83%;
+    width: 15%;
 }
 
 .block-content .card {
     padding-top: 1rem;
-    width: 200px;
     border-radius: 10px;
 }
 
@@ -307,6 +307,8 @@ body>.container {
 
 .corousel-container .row .block-content {
     margin-bottom: 0;
+    margin: 1.1%;
+    width: unset;
 }
 
 .container-block {
