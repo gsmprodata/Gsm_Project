@@ -353,8 +353,6 @@ body>.container {
     cursor: pointer;
 }
 
-.corousel-container .prev-next-button :hover {}
-
 .corousel-container .prev-next-button svg {
     position: absolute;
     left: 20%;
