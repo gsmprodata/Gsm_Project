@@ -228,6 +228,7 @@ body>.container {
 
 .block-content .card {
     padding-top: 1rem;
+    width: 200px;
     border-radius: 10px;
 }
 
@@ -286,7 +287,6 @@ body>.container {
 
 .corousel-container .row .card {
     min-width: 200px;
-    padding: .75rem;
     margin-bottom: 2rem;
     border: 0;
     flex-basis: 33.333%;
