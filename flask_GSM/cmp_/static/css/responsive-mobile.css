@@ -1,5 +1,5 @@
-@media (max-width: 768px){
-    body > .container{
+@media (max-width: 768px) {
+    body>.container {
         margin-left: auto;
         margin-right: auto;
         width: 96%;
@@ -7,7 +7,7 @@
     .block-content .card {
         width: auto;
     }
-    .block-content{
+    .block-content {
         margin-left: 7%;
         margin-right: 7%;
         width: 36%;
@@ -15,10 +15,34 @@
     .card-img-top {
         width: 110px;
     }
-    .content-inline{
+    .content-inline {
         width: 35%;
         margin-left: 7.5%;
         margin-right: 7.5%;
         min-height: 200px;
+    }
+    .corousel-container .right-arrow,
+    .corousel-container .left-arrow {
+        margin-top: 18%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-inline {
+        width: 35%;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+        min-height: 100px;
+    }
+    .corousel-container .right-arrow,
+    .corousel-container .left-arrow {
+        margin-top: 35%;
+    }
+    .corousel-container .row .card {
+        min-width: 150px;
+        margin-bottom: 0;
+    }
+    .corousel-container {
+        padding-bottom: 0px;
     }
 }
