@@ -1,0 +1,26 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="container">
+<table class="table table-striped">
+    <thead>
+            <tr>
+            <th>Product id</th>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            </tr>
+    </thead>
+    <tbody>
+        {% for i in list %}
+        <tr>
+        
+        <td>{{i['name']}}</td>
+        <td>{{i['phone_id']}}</td>
+        <td>{{i['img_name']}}</td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+    </table>
+</div>
+{% endblock %}
