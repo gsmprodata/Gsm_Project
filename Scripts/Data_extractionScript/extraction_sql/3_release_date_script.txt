@@ -1,0 +1,6 @@
+UPDATE home_allpro Set
+release_date = Case WHEN release_month is null and release_year is null then null
+WHEN release_month is null and release_year is not null then make_date(release_year, 1 ,1)
+WHEN release_month is not null and release_year is not null then make_date(release_year, release_month ,1)	
+else null
+end

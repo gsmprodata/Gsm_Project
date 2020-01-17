@@ -1,7 +1,7 @@
 from flask import Flask, escape, request,render_template,url_for,flash,redirect,request,abort
 from flask_sqlalchemy import SQLAlchemy
-from cmp_.helper.helper import filterPhoneDetails
-import sys,json
+from cmp_.helper.helper import filterPhoneDetails, paginate
+import sys, json
 from cmp_.db import brand, allpro, top_phones, db
 from cmp_.forms import login_form
 from cmp_ import app
@@ -24,14 +24,14 @@ def home():
 
 @app.route('/data/<string:brand_name>')
 def brandinfo(brand_name):
-    print(brand)
     nav = db.session.query(brand).all()
-    # data = allpro.objects.filter(brand=brand)
-    data = db.session.query(allpro).filter(allpro.brand==brand_name)
-    for i in data:
-        print(i.img_name)
-    # return render(request, 'list.html', {'contacts': contacts})
-    return render_template ('allpro.html',data=data,nav=nav)
+    count = db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None).count()
+    pagination = paginate(request ,
+                    db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None)
+                    .order_by(allpro.id).order_by(allpro.release_date.desc()))
+    
+    return render_template ('allpro.html',nav=nav, pagination = pagination, brand = brand_name)
+
 @app.route('/prodetail/<int:pro_id>')
 def prodetail(pro_id):
     nav = db.session.query(brand).all()
@@ -43,6 +43,7 @@ def prodetail(pro_id):
 @app.route('/search_phone',methods=['GET'])
 def search_phone():
     query = '%'+str(request.args.get('value'))+'%'
+    
     print(query)
     # sys.exit()
     suggestion = db.session.query(allpro).filter(allpro.name.ilike(query)).limit(10).all()

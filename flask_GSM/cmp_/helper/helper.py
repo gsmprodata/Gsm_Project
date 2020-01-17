@@ -1,4 +1,5 @@
 #filter phone details
+import math
 error_msg = 'No record found'
 
 def replace_linebreak(value):
@@ -59,3 +60,70 @@ def filterPhoneDetails(data):
     'battery_type':battery_type,'battery':battery,'storage':storage,'ram':ram,
     'processor':processor,'video_resolution':video_resolution,'main_camera':main_camera,
     'screen_size':screen_size,'img_name':img_name,'name':name,'resolution':resolution}
+
+def paginate(request, query):
+    page_number = request.args.get('page')
+    size = request.args.get('size')
+    is_prev = True
+    show_first = False
+    show_last = False
+    page_range = 7
+    page_range_median = int(page_range/2)
+    is_next = True
+    current_page = 1
+    page_size = 20
+    count = query.count()
+    pages_list = []
+    
+    if not(page_number == None or size == None): 
+        current_page = int(page_number)
+        page_size = int(size)
+
+    total_pages =  math.ceil(count / int(page_size))
+    ##Check if current page lies in the center or after the center point
+    ##if current is 7 and range is 7 then list should be shown as  4-5-6-7-8-9-10
+    if current_page > page_range_median:
+        ##if current is 7 and total pages are 9 then list should be shown as  3-4-5-6-7-8-9
+        if current_page + page_range_median > total_pages:
+            if total_pages - (2 * page_range_median) > 0:
+                starting_page = total_pages - (2 * page_range_median)
+                show_first = True
+            else:
+                starting_page = 1
+            for page in range(starting_page , total_pages+1):
+                pages_list.append(page)
+        else:
+            for page in range(current_page-page_range_median, current_page + page_range_median+1):
+                pages_list.append(page)
+                show_last = True
+                if current_page-page_range_median > 1 :
+                    show_first = True
+
+    ## Current is 3 or less than 3 then list should be 1-2-3-4-5-6-7
+    elif  (current_page <= page_range_median):
+        if total_pages >= page_range:
+            ending_page = page_range
+            show_last = True
+        else: 
+            ending_page = total_pages
+        for page in range (1, ending_page+1):
+            pages_list.append(page)
+
+
+    data = query.offset((current_page-1)*page_size).limit(page_size).all()
+    pagination = {
+        'total_pages' :total_pages,
+        'total_data' : count,
+        'current_page' : current_page,
+        'page_size' : page_size,
+        'is_prev': is_prev,
+        'is_next' : is_next,
+        'data' : data,
+        'to_count': current_page*page_size,
+        'from_count': (current_page*page_size)-page_size+1,
+        'page_list' : pages_list,
+        'show_first' : show_first,
+        'show_last' : show_last
+    }
+    return pagination
+    

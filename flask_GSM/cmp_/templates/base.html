@@ -43,7 +43,7 @@
           </a>
                     <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                         {% for i in nav %}
-                        <a class="dropdown-item dpd" href="{{ url_for('brandinfo',brand_name=i.name)}}">{{i.name}}</a> {% endfor %}
+                        <a class="dropdown-item dpd" href="{{ url_for('brandinfo',brand_name=i.name, page=1,size=20)}}">{{i.name}}</a> {% endfor %}
 
                         <div class="dropdown-divider"></div>
                     </div>
