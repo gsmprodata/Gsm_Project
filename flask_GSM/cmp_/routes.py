@@ -25,7 +25,6 @@ def home():
 @app.route('/data/<string:brand_name>')
 def brandinfo(brand_name):
     nav = db.session.query(brand).all()
-    count = db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None).count()
     pagination = paginate(request ,
                     db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None)
                     .order_by(allpro.id).order_by(allpro.release_date.desc()))
