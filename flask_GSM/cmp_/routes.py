@@ -31,8 +31,8 @@ def brandinfo(brand_name):
     
     return render_template ('allpro.html',nav=nav, pagination = pagination, brand = brand_name)
 
-@app.route('/prodetail/<int:pro_id>')
-def prodetail(pro_id):
+@app.route('/phone_details/<string:name>/<int:pro_id>')
+def phone_details(name,pro_id):
     nav = db.session.query(brand).all()
     data = db.session.query(allpro).get_or_404(pro_id)
     jsonData = filterPhoneDetails(data)

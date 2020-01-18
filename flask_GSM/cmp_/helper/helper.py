@@ -13,43 +13,47 @@ def replace_linebreak(value):
 def filterPhoneDetails(data):
     img_name = data.img_name
     name = data.name
-    screen_size =data.head['display']
-    if 'display' in data.head:
-        resolution = data.head['resolution']
-    else:
-        resolution = ""
-    if 'main_camera' in data.head:
-        main_camera = data.head['main_camera']
-    else:
-        main_camera = ''
-    if 'video_pixel' in data.head:
-        video_resolution = data.head['video_pixel']
-    else:
-        video_resolution = ''
-    if 'processor' in data.head:
-        processor= data.head['processor']
-    else :
-        processor=''
-    if 'ram' in data.head:
-        buffer_ram = data.head['ram']
-        if len(buffer_ram)<=2:
-            ram = buffer_ram+str('GB')
-        else:
-            ram = buffer_ram+str('MB')
-    else:
-        ram = ''
-    if 'storage' in data.head:
-        storage = data.head['storage']
-    else :
-        storage = ''
-    if 'battery' in data.head:
-        battery = data.head['battery']
-    else:
-        battery=''
-    if 'battery_type' in data.head:
-        battery_type = data.head['battery_type']
-    else:
-        battery_type=''
+    battery_type =""
+    battery =""
+    storage = ""
+    ram =""
+    processor =""
+    video_resolution =""
+    main_camera =""
+    screen_size = ""
+    resolution = ""
+    if data.head is not None:
+        if 'display' in data.head:
+            screen_size =data.head['display']
+
+        if 'resolution' in data.head:
+            resolution = data.head['resolution']
+
+        if 'main_camera' in data.head:
+            main_camera = data.head['main_camera']
+
+        if 'video_pixel' in data.head:
+            video_resolution = data.head['video_pixel']
+
+        if 'processor' in data.head:
+            processor= data.head['processor']
+
+        if 'ram' in data.head:
+            buffer_ram = data.head['ram']
+            if len(buffer_ram)<=2:
+                ram = buffer_ram+str('GB')
+            else:
+                ram = buffer_ram+str('MB')
+
+        if 'storage' in data.head:
+            storage = data.head['storage']
+
+        if 'battery' in data.head:
+            battery = data.head['battery']
+
+        if 'battery_type' in data.head:
+            battery_type = data.head['battery_type']
+
     # end head
     return {'body_misc':data.misc,'body_battery':data.battery,
     'body_features':data.features,'body_comms':data.comms,

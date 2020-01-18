@@ -31,7 +31,7 @@
 
         <div class=" block-content ">
             <div class="card ">
-                <a href="{{ url_for( 'prodetail',pro_id=phone.phone_id)}} ">
+                <a href="{{ url_for( 'phone_details',name=phone.name,pro_id=phone.phone_id)}} ">
                     <img src="{{ url_for( 'static',filename='imgfiles/' +phone.img_name)}} " class="img-circle img1 " alt="{{phone.name}} ">
                 </a>
                 <div class="card-body ">
