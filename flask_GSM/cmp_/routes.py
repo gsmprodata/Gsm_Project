@@ -27,7 +27,7 @@ def brandinfo(brand_name):
     nav = db.session.query(brand).all()
     pagination = paginate(request ,
                     db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None)
-                    .order_by(allpro.id).order_by(allpro.release_date.desc()))
+                    .order_by(allpro.release_date.desc()).order_by(allpro.id))
     
     return render_template ('allpro.html',nav=nav, pagination = pagination, brand = brand_name)
 

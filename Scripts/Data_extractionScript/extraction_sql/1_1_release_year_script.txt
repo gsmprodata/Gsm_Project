@@ -1,0 +1,4 @@
+Update home_allpro 
+SET release_year = SUBSTRING ( (launch -> 'Announced':: text):: text ,2 , 4 ) :: integer
+WHERE SUBSTRING ( (launch -> 'Announced':: text):: text ,2 , 4 ) ~ '^[0-9\.]+$' = true
+AND release_year is null

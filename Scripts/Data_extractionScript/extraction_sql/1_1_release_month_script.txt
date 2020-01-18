@@ -14,3 +14,4 @@ WHEN (launch -> 'Announced'):: text ilike '%February%' THEN 2
 WHEN (launch -> 'Announced'):: text ilike '%january%' THEN 1
 ELSE NULL
 END
+WHERE release_month is null

@@ -7,6 +7,7 @@ WHEN (launch -> 'Announced'):: text ilike '%2017%' THEN 2017
 WHEN (launch -> 'Announced'):: text ilike '%2016%' THEN 2016
 WHEN (launch -> 'Announced'):: text ilike '%2015%' THEN 2015
 WHEN (launch -> 'Announced'):: text ilike '%2014%' THEN 2014
+WHEN (launch -> 'Announced'):: text ilike '%2013%' THEN 2013
 WHEN (launch -> 'Announced'):: text ilike '%2012%' THEN 2012
 WHEN (launch -> 'Announced'):: text ilike '%2011%' THEN 2011
 WHEN (launch -> 'Announced'):: text ilike '%2010%' THEN 2010
@@ -14,3 +15,4 @@ WHEN (launch -> 'Announced'):: text ilike '%2009%' THEN 2009
 WHEN (launch -> 'Announced'):: text ilike '%2008%' THEN 2008
 ELSE release_year
 END
+WHERE release_year is null
