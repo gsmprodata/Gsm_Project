@@ -101,10 +101,10 @@ $(document).ready(function() {
         slide_right();
     });
 
-    $('.corousel-container .block-content').on("mouseenter", function() {
+    $('.corousel-container .row').on("mouseenter", function() {
         isSliderPaused = true;
     })
-    $('.corousel-container .block-content').on("mouseleave", function() {
+    $('.corousel-container .row').on("mouseleave", function() {
         isSliderPaused = false;
     })
 });
