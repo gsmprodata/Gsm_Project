@@ -1,0 +1,1 @@
+update home_allpro set slug = REPLACE(name, ' ', '-' )

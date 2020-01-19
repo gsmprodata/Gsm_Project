@@ -1,0 +1,5 @@
+$('#add_device_slider').click(function(){
+    var selected_device = $('#selected_1').attr('find');
+    // var second_phone_id = $('#selected_2').attr('find');
+    alert(selected_device)
+  });

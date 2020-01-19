@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             <div class="col-md-2">
-                <img src={{ url_for('static',filename='imgfiles/'+jsonData['img_name'])}} class="img-rounded" alt="Cinque Terre" width="160" height="212">
+                <img src={{ url_for('static',filename='imgfiles/'+jsonData['img_name'])}} class="img-rounded" alt="{{jsonData['name']}}" width="160" height="212">
             </div>
             <div class="col-md-10 phone-details">
               <div class="row">

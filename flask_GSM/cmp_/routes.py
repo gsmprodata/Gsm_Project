@@ -11,7 +11,7 @@ def get_top_phones():
     phone_list = db.session.query(top_phones).filter(top_phones.is_active == True).limit(10).all()
     list = []
     for phone in phone_list:
-        phone_information = {"name" : phone.home_allpro.name, "phone_id": phone.home_allpro.id, "img_name": phone.home_allpro.img_name}
+        phone_information = {"name" : phone.home_allpro.name, "phone_id":       phone.home_allpro.id, "img_name": phone.home_allpro.img_name, "slug":phone.home_allpro.slug,"brand":phone.home_allpro.brand}
         list.append(phone_information)
     return list
 
@@ -31,8 +31,8 @@ def brandinfo(brand_name):
     
     return render_template ('allpro.html',nav=nav, pagination = pagination, brand = brand_name)
 
-@app.route('/phone_details/<string:name>/<int:pro_id>')
-def phone_details(name,pro_id):
+@app.route('/<string:device_brand>/<string:slug>/<int:pro_id>')
+def phone_details(device_brand,slug,pro_id):
     nav = db.session.query(brand).all()
     data = db.session.query(allpro).get_or_404(pro_id)
     jsonData = filterPhoneDetails(data)
