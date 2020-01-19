@@ -22,7 +22,7 @@ def home():
     return render_template('index.html',nav=nav, top_phone_json = top_phones_json)
 
 
-@app.route('/data/<string:brand_name>')
+@app.route('/<string:brand_name>')
 def brandinfo(brand_name):
     nav = db.session.query(brand).all()
     pagination = paginate(request ,
