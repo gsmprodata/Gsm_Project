@@ -40,7 +40,8 @@ def filterPhoneDetails(data):
 
         if 'ram' in data.head:
             buffer_ram = data.head['ram']
-            if len(buffer_ram)<=2:
+            ram_arr = buffer_ram.split('/')
+            if len(buffer_ram)<=2 or len(ram_arr[0]) <= 2:
                 ram = buffer_ram+str('GB')
             else:
                 ram = buffer_ram+str('MB')
