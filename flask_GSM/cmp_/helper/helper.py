@@ -83,7 +83,7 @@ def paginate(request, query):
         current_page = int(page_number)
         page_size = int(size)
 
-    total_pages =  math.ceil(count / int(page_size))
+    total_pages =  int(math.ceil(count / int(page_size)))
     ##Check if current page lies in the center or after the center point
     ##if current is 7 and range is 7 then list should be shown as  4-5-6-7-8-9-10
     if current_page > page_range_median:

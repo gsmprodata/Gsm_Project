@@ -2,9 +2,12 @@ import requests  as r
 import psycopg2
 import lxml.html 
 import sys
+import time
 import json
 import urllib.request
 import os
+from random import seed
+from random import randint
 
 	
 try:
@@ -14,6 +17,17 @@ try:
 except:
     print('connection fail')
     sys.exit()
+
+headers = {
+    'Accept' : 'text/html, application/xhtml+xml, application/xml; q=0.9, */*; q=0.8',
+    'Accept-Encoding' : 'gzip, deflate, br',
+    'Accept-Language' : 'en-IN',
+    'Connection' : 'Keep-Alive',
+    'Host' : 'www.gsmarena.com',
+    'Upgrade-Insecure-Requests' : '1',
+    'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362'
+    }
+
 
 def unique(name):
     name = str(name)
@@ -119,7 +133,7 @@ def image_download(name,url):
 
 
 def pagination_links(url):
-    res = r.get(url)
+    res = r.get(url, headers = headers)
     doc = lxml.html.fromstring(res.content)
     list_of_pages = doc.xpath('//div[@class="nav-pages"]/a/@href')
     return list_of_pages
@@ -127,7 +141,7 @@ def pagination_links(url):
 
 def extract_page(url):#extract page content
     # link1 = "https://www.gsmarena.com/samsung-phones-9.php"
-    res = r.get(url)
+    res = r.get(url, headers = headers)
     doc = lxml.html.fromstring(res.content)
     return doc
 
@@ -195,13 +209,14 @@ def unique_urlcheck(name):
     finally:
         return is_unique
 
+seed(1)
 doc = extract_page('https://www.gsmarena.com')
 brand_list = doc.xpath('//div[@class="brandmenu-v2 light l-box clearfix"]/ul/li/a/@href')
 brand_names = doc.xpath('//div[@class="brandmenu-v2 light l-box clearfix"]/ul/li/a/text()')
 index_val = max_id()+1
 skip_check = True
 for (brand_link,brand_name) in zip(brand_list,brand_names):
-    if(brand_name == 'Sharp'):
+    if(brand_name == 'Nokia'):
         skip_check = False
     if skip_check:
         continue
@@ -209,6 +224,8 @@ for (brand_link,brand_name) in zip(brand_list,brand_names):
     pages.append(brand_link)
     pages.extend(pagination_links(complete_link(brand_link)))
     for page in pages:
+        rand_home = randint(20, 30)
+        time.sleep(rand_home)
         page_html = extract_page(complete_link(page))
         # page_html = extract_page('https://www.gsmarena.com/samsung_galaxy_a70s-9899.php')
         phone_links = page_html.xpath('//div[@class="makers"]/ul/li/a/@href')
@@ -220,6 +237,8 @@ for (brand_link,brand_name) in zip(brand_list,brand_names):
                 print(error)
             if(unique_urlcheck(phone_checkarr)):
                 # phone_url = complete_link('https://www.gsmarena.com/samsung_galaxy_a70s-9899.php')
+                rand_home = randint(20, 30)
+                time.sleep(rand_home)
                 phone_url = complete_link(phone_link)
                 phone_page_html = extract_page(phone_url)
                 name = ''
