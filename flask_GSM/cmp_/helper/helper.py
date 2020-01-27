@@ -13,6 +13,7 @@ def replace_linebreak(value):
 def filterPhoneDetails(data):
     img_name = data.img_name
     name = data.name
+    brand_name = data.brand
     battery_type =""
     battery =""
     storage = ""
@@ -64,7 +65,7 @@ def filterPhoneDetails(data):
     'body_body':data.body,'body_launch':data.launch,'body_network':data.network,
     'battery_type':battery_type,'battery':battery,'storage':storage,'ram':ram,
     'processor':processor,'video_resolution':video_resolution,'main_camera':main_camera,
-    'screen_size':screen_size,'img_name':img_name,'name':name,'resolution':resolution}
+    'screen_size':screen_size,'img_name':img_name,'name':name,'brand_name':brand_name,'resolution':resolution}
 
 def paginate(request, query):
     page_number = request.args.get('page')

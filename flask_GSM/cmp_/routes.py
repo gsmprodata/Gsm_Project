@@ -6,6 +6,9 @@ from cmp_.db import brand, allpro, top_phones, db
 from cmp_.forms import login_form
 from cmp_ import app
 
+def title_function(*string):
+    return '| '.join(string)+" | phoneworldz.com"
+
 
 def get_top_phones():
     phone_list = db.session.query(top_phones).filter(top_phones.is_active == True).limit(10).all()
@@ -17,27 +20,32 @@ def get_top_phones():
 
 @app.route('/')
 def home():
+    title = "Mobile Phones | Mobile Prices in India | Online Mobile Shopping | phoneworldz.com"
     nav = db.session.query(brand).all()
     top_phones_json = get_top_phones()
-    return render_template('index.html',nav=nav, top_phone_json = top_phones_json)
+    return render_template('index.html',nav=nav, top_phone_json = top_phones_json,title=title)
 
 
 @app.route('/<string:brand_name>')
 def brandinfo(brand_name):
+    
     nav = db.session.query(brand).all()
     pagination = paginate(request ,
                     db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None)
                     .order_by(allpro.release_date.desc()).order_by(allpro.id))
     
-    return render_template ('allpro.html',nav=nav, pagination = pagination, brand = brand_name)
+    title = title_function(brand_name)
+    return render_template ('allpro.html',nav=nav, pagination = pagination, brand = brand_name,title=title)
 
 @app.route('/<string:device_brand>/<string:slug>/<int:pro_id>')
 def phone_details(device_brand,slug,pro_id):
     nav = db.session.query(brand).all()
     data = db.session.query(allpro).get_or_404(pro_id)
     jsonData = filterPhoneDetails(data)
-    print(jsonData)
-    return render_template("detail.html",jsonData=jsonData,nav=nav)
+    brand_name = jsonData['brand_name']
+    phone_name = jsonData['name']
+    title = title_function(phone_name,brand_name)
+    return render_template("detail.html",jsonData=jsonData,nav=nav,title=title)
 
 @app.route('/search_phone',methods=['GET'])
 def search_phone():
