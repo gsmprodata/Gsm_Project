@@ -37,7 +37,7 @@ def filterPhoneDetails(data):
             video_resolution = data.head['video_pixel']
 
         if 'processor' in data.head:
-            processor= data.head['processor']
+            processor= data.head['processor'] 
 
         if 'ram' in data.head:
             buffer_ram = data.head['ram']
