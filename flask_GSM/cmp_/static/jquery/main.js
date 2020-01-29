@@ -120,5 +120,4 @@
           // var second_phone_id = $('#selected_2').attr('find');
           alert(selected_device)
       });
-
   });

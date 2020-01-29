@@ -2,29 +2,36 @@
 $(document).ready(function(){
   $('#add_device').keyup(function() {
     search_query = $('#add_device').val();
-    ul = $('#append');
+    ul = $('#device_search_option');
     ul.empty();
-    if (search_query.length > 0) {
-        // alert(search_query.length);
-        search_val = $('#add_device').val();
-        // alert(search_val);
+
+    if(search_query.length>0)
+    {
+        $("#device_search_option").html("");
+
         $.ajax({
-            type: "GET",
-            url: '/search_phone',
-            data: { "value": search_val },
-            // dataType:"json",
-            success: function(data) {
-                data = JSON.parse(data);
-                console.log(typeof(data));
-                for (i = 0; i < data.length; i++) {
-                    ul.append(`<li><a href="/phone_details/${data[i].name}/${data[i].id}"> ${data[i].name} </a> </li>`);
-                    // console.log(data.length);
+            type:"GET",
+            url:'/search_phone',
+            data: { "value": search_query },
+            success:function(output)
+            {
+                suggestion_array = JSON.parse(output);
+                console.log(suggestion_array);
+                for (i=0;i<suggestion_array.length;i++){
+                $('#device_search_option').append('<div  ><a href="#" data-click='+suggestion_array[i]['id']+' class="row suggestedDevice">'+suggestion_array[i]['name']+'</a></div>');
                 }
-            },
-            error: function(data) {
-                alert('error');
+                $('.suggestedDevice').click(function(){
+                    id = $(this).attr('data-click');
+                    name = $(this).html();
+                    $('#selected_device').append('<div id="'+id+'" class="alert alert-success"   role="alert">'+name+' </div>')
+                });
             }
         });
-      }
+    }
   });
+
+  $('.closeButton').click(function(){
+      alert('asdasd');
+  });
+    
 });
