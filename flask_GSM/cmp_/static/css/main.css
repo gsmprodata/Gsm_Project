@@ -280,9 +280,13 @@ body>.container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: hidden;
+    overflow-x: scroll;
     overflow-y: hidden;
     margin: 0;
+}
+
+.corousel-container .row::-webkit-scrollbar {
+    display: none;
 }
 
 .corousel-container .row .card {
