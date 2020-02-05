@@ -54,7 +54,7 @@ $(document).ready(function() {
     function autoScroll(auto_scroll_left, auto_scroll_right) {
         let scroll_right;
         let scroll_left;
-        if (auto_scroll_right == true) {
+        if (auto_scroll_right && !$().isMobile()) {
             if (isSliderPaused) {
                 scroll_right = true;
             } else {
@@ -71,7 +71,7 @@ $(document).ready(function() {
             return true;
         }
 
-        if (auto_scroll_left) {
+        if (auto_scroll_left && !$().isMobile()) {
             if (isSliderPaused) {
                 scroll_left = true;
             } else {

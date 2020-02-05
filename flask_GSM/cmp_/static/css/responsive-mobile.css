@@ -25,6 +25,9 @@
     .corousel-container .left-arrow {
         margin-top: 18%;
     }
+    .corousel-container .prev-next-button {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -41,5 +44,8 @@
     .corousel-container .row .card {
         min-width: 135px;
         margin-bottom: 0;
+    }
+    .corousel-container .prev-next-button {
+        display: none;
     }
 }
