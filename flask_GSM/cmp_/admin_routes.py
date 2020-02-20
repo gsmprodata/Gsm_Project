@@ -42,3 +42,20 @@ def addDevicesToslider():
   except:
     return flag
 
+@app.route('/deleteDeviceFromSlider',methods=['GET','POST'])
+def deleteDeviceFromSlider():
+  device = request.args.get('id')
+  flag = 'False'
+  try:
+    db.session.query(top_phones).filter_by(phone_id=device).delete()
+    db.session.commit()
+    flag = 'True'
+    return flag
+
+  except:
+    return flag
+  
+
+
+  
+

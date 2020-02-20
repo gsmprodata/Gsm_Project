@@ -53,14 +53,30 @@ $(document).ready(function(){
     }
   });
 
-  $('.btn btn-outline-danger delete_button').click(function(){
-    //   let id = $this.attr('data-device-id');
-      alert('id');
-  });
-
-//   $('.closeButton').click(function(){
-//     $('#add_new_model_content').empty();
-//     $('#add_device').val('');
-//   });
+$('.delete_button').click(function(){
+    id = $(this).data('device-id');
+    $('#device_to_delete').data('delete-id',id);
+    delete_id = $('#device_to_delete').data('delete-id');
+    alert(delete_id); 
+    $('#delete_device_from_slider').click(function(){
+        $('#delete_device_from_slider_warning').model('hide');
+        $.ajax({
+             type:'GET',
+             url:'/deleteDeviceFromSlider',
+             data :{'id':delete_id},
+             success:function(data)
+             {
+                if(data=='True')
+                {
+                    
+                    $( "#tableSlider").load(window.location.href + " #tableSlider");
+                    alert('adasd');
     
+                }
+             }
+        })
+    })
+});
+
+
 });
