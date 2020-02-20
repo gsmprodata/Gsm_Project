@@ -8,6 +8,7 @@ from cmp_ import app
 from cmp_.forms import login_form
 from cmp_.routes import get_top_phones
 import json,datetime
+from cmp_.models import User
 
 def get_slider_device():
     phone_list = db.session.query(top_phones).filter(top_phones.is_active == True).all()
