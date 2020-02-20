@@ -53,6 +53,11 @@ $(document).ready(function(){
     }
   });
 
+  $('.btn btn-outline-danger delete_button').click(function(){
+    //   let id = $this.attr('data-device-id');
+      alert('id');
+  });
+
 //   $('.closeButton').click(function(){
 //     $('#add_new_model_content').empty();
 //     $('#add_device').val('');
