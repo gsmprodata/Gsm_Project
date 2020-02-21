@@ -53,13 +53,11 @@ $(document).ready(function(){
     }
   });
 
-$('.delete_button').click(function(){
+$('#tableSlider').on('click','.delete_button',function(){
     id = $(this).data('device-id');
     $('#device_to_delete').data('delete-id',id);
     delete_id = $('#device_to_delete').data('delete-id');
-    alert(delete_id); 
-    $('#delete_device_from_slider').click(function(){
-        $('#delete_device_from_slider_warning').model('hide');
+    $('#delete_device_from_slider').on('click',function(){
         $.ajax({
              type:'GET',
              url:'/deleteDeviceFromSlider',
@@ -68,12 +66,14 @@ $('.delete_button').click(function(){
              {
                 if(data=='True')
                 {
-                    
                     $( "#tableSlider").load(window.location.href + " #tableSlider");
-                    alert('adasd');
     
                 }
-             }
+             },
+             error:function(data)
+            {
+                alert(data);
+            }
         })
     })
 });

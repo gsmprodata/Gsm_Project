@@ -9,6 +9,9 @@ from cmp_.forms import login_form
 from cmp_.routes import get_top_phones
 import json,datetime
 from cmp_.models import User
+from flask_login import current_user,login_user
+
+
 
 def get_slider_device():
     phone_list = db.session.query(top_phones).filter(top_phones.is_active == True).all()
@@ -20,7 +23,19 @@ def get_slider_device():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
+    if current_user.is_authenticated:
+      return redirect(url_for('dashboard'))
+
     form = login_form()
+    if form.validate_on_submit():
+      print(form.remember_me.data)
+      user = User.query.filter_by(username=form.username.data).first()
+      if user is None or not user.check_passwor(form.password.data):
+        flash('Invalid Username or password','danger')
+        return redirect(url_for('login'))
+      login_user(user,remember=form.remember_me.data)
+      return redirect(url_for('dashboard'))
+      print('asdsasda')
     return render_template('login.html',form =form)
 
 @app.route('/dashboard',methods=['GET','POST'])
@@ -35,9 +50,11 @@ def addDevicesToslider():
   flag='False'
   try:
     for i in list_of_device:
-      db.session.add(top_phones(phone_id=int(i),is_active=True,created_at=datetime.datetime.now()))
-      db.session.commit()
-      flag = 'True'
+      rowCount = db.session.query(top_phones).filter_by(phone_id=int(i)).count()
+      if int(rowCount) ==0:
+        db.session.add(top_phones(phone_id=int(i),is_active=True,created_at=datetime.datetime.now()))
+        db.session.commit()
+    flag = 'True'
 
     return flag
   except:
