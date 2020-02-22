@@ -67,6 +67,7 @@ $('#tableSlider').on('click','.delete_button',function(){
                 if(data=='True')
                 {
                     $( "#tableSlider").load(window.location.href + " #tableSlider");
+                    $("#content-wrapper > div > div:nth-child(2) > div:nth-child(1) > div > div > div.mr-5").load(window.location.href + " #content-wrapper > div > div:nth-child(2) > div:nth-child(1) > div > div > div.mr-5");
     
                 }
              },

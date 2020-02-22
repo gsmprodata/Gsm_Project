@@ -9,7 +9,7 @@ from cmp_.forms import login_form
 from cmp_.routes import get_top_phones
 import json,datetime
 from cmp_.models import User
-from flask_login import current_user,login_user
+from flask_login import current_user,login_user,logout_user
 
 
 
@@ -30,7 +30,7 @@ def login():
     if form.validate_on_submit():
       print(form.remember_me.data)
       user = User.query.filter_by(username=form.username.data).first()
-      if user is None or not user.check_passwor(form.password.data):
+      if user is None or not user.check_password(form.password.data):
         flash('Invalid Username or password','danger')
         return redirect(url_for('login'))
       login_user(user,remember=form.remember_me.data)
@@ -73,6 +73,12 @@ def deleteDeviceFromSlider():
   except:
     return flag
   
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+
+
 
 
   
