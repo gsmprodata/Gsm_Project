@@ -1,0 +1,8 @@
+CREATE SEQUENCE processor_id_seq
+
+CREATE TABLE processor(
+	id INT NOT NULL DEFAULT nextval('processor_id_seq'::regclass) primary key,
+	name text not null,
+	processor_brand_id int REFERENCES processor_brand(id),
+	is_active boolean DEFAULT true	
+)

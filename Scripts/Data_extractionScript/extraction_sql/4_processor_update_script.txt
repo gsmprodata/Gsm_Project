@@ -1,0 +1,3 @@
+INSERT INTO processor (name, is_active)
+SELECT distinct head->>'processor', true FROM home_allpro where head->>'processor' is not null and head->>'processor' 
+not in (SELECT name from Processor)

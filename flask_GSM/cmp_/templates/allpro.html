@@ -4,7 +4,7 @@
         {% for i in pagination['data'] %}
         <div class=" block-content" style="padding-bottom: 5px;">
             <div class="card">
-                
+
                 <a href="{{ url_for('phone_details',device_brand=i.brand,slug=i.slug,pro_id=i.id)}}"><img class="card-img-top" src="{{ url_for('static',filename='imgfiles/'+i.img_name)}}" alt="Card image"></a>
                 <div class="card-body">
                     <!-- <h4 class="card-title">{{i.name}}</h4> -->
@@ -18,10 +18,12 @@
     <div class="center">
         <div class="pagination">
             {% if pagination['show_first'] == True %}
-            <a href="{{ url_for( 'brandinfo',brand_name=brand, page=1, size=pagination['page_size'])}} ">1</a>
+            <a href="{{ url_for( 'brandinfo',brand_name=brand, page=1, size=pagination['page_size'])}} ">1</a> {% endif %} {% if pagination['current_page'] > 1 %}
             <a class="margin-right-30" href="{{ url_for( 'brandinfo',brand_name=brand, page=pagination['current_page']-1, size=pagination['page_size'])}}">&laquo;</a> {% endif %} {% for page_number in pagination['page_list'] %}
-            <a {% if page_number==pagination[ 'current_page'] %} class="active" {% endif %} href="{{ url_for( 'brandinfo',brand_name=brand, page=page_number, size=pagination['page_size'])}} ">{{page_number}}</a{% if tkey in disabled_rows %} class="disabled-row"{% endif %}> {% endfor %} {% if pagination['show_last'] == True %}
-            <a class="margin-left-30" href="{{ url_for( 'brandinfo',brand_name=brand, page=pagination['current_page']+1, size=pagination['page_size'])}} ">&raquo;</a>
+            <a {% if page_number==pagination[ 'current_page'] %} class="active" {% endif %} href="{{ url_for( 'brandinfo',brand_name=brand, page=page_number, size=pagination['page_size'])}} ">{{page_number}}</a{% if tkey in disabled_rows %} class="disabled-row"{% endif %}> 
+            {% endfor %} 
+            {% if pagination['current_page'] < pagination['total_pages']%}
+            <a class="margin-left-30" href="{{ url_for( 'brandinfo',brand_name=brand, page=pagination['current_page']+1, size=pagination['page_size'])}} ">&raquo;</a> {% endif %} {% if pagination['show_last'] == True %}
             <a href="{{ url_for( 'brandinfo',brand_name=brand, page=pagination['total_pages'], size=pagination['page_size'])}}">{{pagination['total_pages']}}</a> {% endif %}
         </div>
     </div>

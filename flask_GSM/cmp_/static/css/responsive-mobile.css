@@ -28,6 +28,12 @@
     .corousel-container .prev-next-button {
         display: none;
     }
+    .margin-left-30 {
+        margin: unset!important;
+    }
+    .margin-right-30 {
+        margin: unset!important;
+    }
 }
 
 @media (max-width: 480px) {

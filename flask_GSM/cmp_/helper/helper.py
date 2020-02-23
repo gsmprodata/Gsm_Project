@@ -1,5 +1,6 @@
 #filter phone details
 import math
+import re
 error_msg = 'No record found'
 
 def replace_linebreak(value):
@@ -70,10 +71,16 @@ def filterPhoneDetails(data):
 def paginate(request, query):
     page_number = request.args.get('page')
     size = request.args.get('size')
+    pagination_range = 7
+    user_agent = request.user_agent.string
+    check_mobile = is_mobile(user_agent)
+    if check_mobile:
+        pagination_range = 3
+    
     is_prev = True
     show_first = False
     show_last = False
-    page_range = 7
+    page_range = pagination_range
     page_range_median = int(page_range/2)
     is_next = True
     current_page = 1
@@ -115,6 +122,9 @@ def paginate(request, query):
         for page in range (1, ending_page+1):
             pages_list.append(page)
 
+    if check_mobile:
+        show_first = False
+        show_last = False
 
     data = query.offset((current_page-1)*page_size).limit(page_size).all()
     pagination = {
@@ -133,3 +143,19 @@ def paginate(request, query):
     }
     return pagination
     
+def is_mobile(ua):
+    is_valid = False
+    iphone_regex =r"(iPhone|iPod|iPad)"
+    blackberry_regex = r"(BlackBerry)"
+    android_regex = r"(Android)"
+
+    if re.findall(iphone_regex, ua):
+        is_valid = True
+    
+    if re.findall(blackberry_regex, ua):
+        is_valid = True
+    
+    if re.findall(android_regex, ua):
+        is_valid = True
+    
+    return is_valid

@@ -1,0 +1,15 @@
+CREATE SEQUENCE storage_type_id_seq
+
+CREATE TABLE storage_type(
+	id INT NOT NULL DEFAULT nextval('storage_type_id_seq'::regclass) primary key,
+	type text not null UNIQUE,
+	is_active boolean DEFAULT true	
+)
+
+INSERT INTO storage_type(type) VALUES 
+('KB'),
+('MB'),
+('GB'),
+('TB')
+
+SELECT * FROM Storage_type

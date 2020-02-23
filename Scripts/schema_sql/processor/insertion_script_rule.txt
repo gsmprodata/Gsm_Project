@@ -1,0 +1,8 @@
+SELECT * FROM Processor Where processor_brand_id is not null
+
+SELECT * FROM processor WHERE name not ILIKE '%snapdragon%' and name not LIKE 'MT%' and name not ILIKE '%mediatek%'
+and name not  ILIKE '%exynos%' and NAME not ILIKE '%helio%' and NAME not ILIKE '%qualcomm%'  
+
+SELECT * FROM processor WHERE name  ILIKE '%snapdragon%' or NAME ILIKE '%qualcomm%'  
+SELECT * FROM processor WHERE name  LIKE 'MT%' OR name ILIKE '%mediatek%' OR NAME ILIKE '%helio%'
+SELECT * FROM processor WHERE name  ILIKE '%exynos%' 

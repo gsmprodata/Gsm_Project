@@ -22,4 +22,10 @@
     .corousel-container .left-arrow {
         margin-top: 13%;
     }
+    .margin-left-30 {
+        margin: unset!important;
+    }
+    .margin-right-30 {
+        margin: unset!important;
+    }
 }
