@@ -241,7 +241,7 @@ body>.container {
 .block-content .card .card-body {
     background: #16324a;
     color: white;
-    padding: 10px 0px 10px 10px;
+    padding: 10px 5px 5px 5px;
     display: flex;
     justify-content: center;
     border-radius: 0px 0px 10px 10px;
@@ -261,7 +261,7 @@ body>.container {
 }
 
 .fdata {
-    display: none;
+    /* display: none; */
     margin: 0;
 }
 
@@ -273,6 +273,11 @@ body>.container {
 
 .margin-bottm {
     margin-bottom: 1rem;
+}
+
+.card {
+    min-height: 265px;
+    height: 100%;
 }
 
 .corousel-container .row {
@@ -295,6 +300,7 @@ body>.container {
     flex-basis: 33.333%;
     flex-grow: 0;
     flex-shrink: 0;
+    min-height: 310px;
 }
 
 .corousel-container {
@@ -311,7 +317,8 @@ body>.container {
 .corousel-container .row .block-content {
     margin-bottom: 0;
     margin: 1.1%;
-    width: unset;
+    min-width: 190px;
+    max-width: 190px;
 }
 
 .container-block {
@@ -450,4 +457,14 @@ body>.container {
 
 .margin-left-30 {
     margin-left: 30px!important;
+}
+
+.card .card-body .card-text {
+    text-align: center;
+}
+
+#phoneDetailDiv .card {
+    max-height: 265px;
+    overflow: scroll;
+    min-height: unset;
 }
