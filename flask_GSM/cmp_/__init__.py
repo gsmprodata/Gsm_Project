@@ -5,5 +5,5 @@ app.config['SECRET_KEY'] = 'c676dfde280ba245'
 login = LoginManager(app)
 login.login_view = 'login'
 
-from cmp_ import routes,admin_routes
+from cmp_.routes import public_routes, admin_routes
 from cmp_.bundles import bundle

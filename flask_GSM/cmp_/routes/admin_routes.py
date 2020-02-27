@@ -6,7 +6,7 @@ from cmp_.db import brand, allpro, top_phones, db,top_phones
 from cmp_.forms import login_form
 from cmp_ import app
 from cmp_.forms import login_form
-from cmp_.routes import get_top_phones
+from cmp_.routes.public_routes import get_top_phones
 import json,datetime
 from cmp_.models import User
 from flask_login import current_user,login_user,logout_user
