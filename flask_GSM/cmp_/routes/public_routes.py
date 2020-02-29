@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from cmp_.helper.helper import filterPhoneDetails, paginate
 import sys, json
 from cmp_.db import brand, allpro, top_phones, db
-from cmp_.forms import login_form
+from cmp_.models.user.forms import login_form
 from cmp_ import app
 
 def title_function(*string):
