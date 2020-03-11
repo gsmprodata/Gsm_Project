@@ -8,7 +8,7 @@ from cmp_.models.user.forms import login_form
 from cmp_.routes.public_routes import get_top_phones
 import json,datetime
 from cmp_.models.user.models import User
-from flask_login import current_user,login_user,logout_user
+from flask_login import current_user,login_user,logout_user,login_required
 
 
 
@@ -38,11 +38,13 @@ def login():
     return render_template('login.html',form =form)
 
 @app.route('/dashboard',methods=['GET','POST'])
+@login_required
 def dashboard():
     phone_list = get_slider_device()
     return render_template('admin/slider.html',list=phone_list)
 
 @app.route('/addDevicesToslider',methods=['GET'])
+@login_required
 def addDevicesToslider():
   device = request.args.get('key')
   list_of_device = json.loads(device)
@@ -73,6 +75,7 @@ def deleteDeviceFromSlider():
     return flag
   
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
