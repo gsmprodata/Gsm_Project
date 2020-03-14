@@ -1,0 +1,5 @@
+ALTER TABLE home_allpro 
+ADD COLUMN processor_id integer, 
+ADD constraint processor_id_fkey 
+      foreign key (processor_id) 
+      references processor (id);

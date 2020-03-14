@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from cmp_.helper.helper import filterPhoneDetails, paginate
 import sys, json
 from cmp_.db import brand, allpro, top_phones, db
+from cmp_.models.processor.model import processor, processor_brand, storage_type
 from cmp_.models.user.forms import login_form
 from cmp_ import app
 
@@ -28,7 +29,8 @@ def home():
 
 @app.route('/<string:brand_name>')
 def brandinfo(brand_name):
-    
+
+    proessor = processor.query.filter_by(id=1).first()
     nav = db.session.query(brand).all()
     pagination = paginate(request ,
                     db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None)
