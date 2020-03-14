@@ -29,8 +29,6 @@ def home():
 
 @app.route('/<string:brand_name>')
 def brandinfo(brand_name):
-
-    proessor = processor.query.filter_by(id=1).first()
     nav = db.session.query(brand).all()
     pagination = paginate(request ,
                     db.session.query(allpro).filter(allpro.brand==brand_name).filter(allpro.release_date != None)
