@@ -1,5 +1,5 @@
-class url: 
-    class filters:
-        controller = "/filter"
-        class action:
-            get_processor_brands = "/getprocessorbrands"
+class filters:
+    controller = "/filter"
+    class action:
+        getprocessorbrands = "/getProcessorBrands"
+        getprocessorbybrand = "/getProcessorByBrand"
