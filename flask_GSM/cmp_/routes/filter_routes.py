@@ -1,4 +1,4 @@
-from flask import Flask, escape, request,render_template,url_for,flash,redirect,request,abort, Blueprint
+from flask import Flask, escape, request,render_template,url_for,flash,redirect,request,abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from cmp_.helper.helper import filterPhoneDetails, paginate
 import sys, json
@@ -20,20 +20,18 @@ def get_processor_brands():
     for item in processors:
         processr={"name":item.name,"id":item.id}
         list.append(processr)
-    return_data = json.dumps(list)
-    return return_data
+    return jsonify(list)
 
 @app.route(f"{filters.controller}{filters.action.getprocessorbybrand}", methods=['GET'])
 def get_processor(): 
     brandid = request.args.get('brandid')
 
-    if not(brand_name == None):
-        processors = processor.query.with_entities(processor.id , processor.name).filter(processor_brand_id==brandid).limit(10).all()
+    if not(brandid == None):
+        processors = processor.query.with_entities(processor.id , processor.name).filter(processor.processor_brand_id==brandid and processor.is_active == true).all()
     else:
         processors = processor.query.with_entities(processor.id , processor.name).limit(10).all()
     list = []
     for item in processors:
         processr={"name":item.name,"id":item.id}
         list.append(processr)
-    return_data = json.dumps(list)
-    return return_data
+    return jsonify(list)
