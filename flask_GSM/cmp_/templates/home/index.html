@@ -3,12 +3,20 @@
 <!-- navbar end -->
 {% block content %} {% assets "filter_css" %}
 <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"> {% endassets %}
-
+<style>
+    .ui-autocomplete-loading {
+        background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+    }
+    
+    ul.ui-menu {
+        background: rgb(246, 246, 246)
+    }
+</style>
 <div class="container-block ">
     {% assets "filter_js" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
-    <input id="hdnInpFilterUrls" type="hidden" data-Processor-Brands-Url="{{ url_for('get_filter_processor_brands') }}" />
+    <input id="hdnInpFilterUrls" type="hidden" data-Processor-Brands-Url="{{ url_for('get_filter_processor_brands') }}" data-Processor-Url="{{ url_for('get_filter_processor') }}" />
     <div class="filter-heading">
         <h2>
             Filter Phones
@@ -25,10 +33,9 @@
         <div class="col-md-3">
             <div class="ui-widget form-group">
                 <label for="ddlProcessor"><b>Processor: </b></label>
-                <select id="ddlProcessor" class="form-control"></select>
+                <input id="ddlProcessor" class="form-control" />
             </div>
         </div>
-        <div class="col-md-6"></div>
     </div>
     <div class="row ">
         <div id="divFilterPhones"></div>

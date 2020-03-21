@@ -3,14 +3,14 @@ $(document).ready(function() {
     var autoScrollTimer = 1500;
     var isSliderPaused = false;
     var processorBrandUrl = $('#hdnInpFilterUrls').data('processorBrandsUrl')
+    var processorUrl = $('#hdnInpFilterUrls').data('processorUrl')
 
     function populateProcessorBrandDropDown() {
         $.ajax({
             type: "GET",
             url: processorBrandUrl,
-            // dataType:"json",
             success: function(data) {
-                let options = '<option>Select</option>';
+                let options = '<option value="">Select</option>';
                 $.each(data, function(key, item) {
                     options += `<option value="${item.id}">${item.name}</option>`;
                 });
@@ -21,6 +21,28 @@ $(document).ready(function() {
             }
         });
     }
+
+    $("#ddlProcessor").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: processorUrl,
+                data: {
+                    brandid: $('#ddlProcessorBrand').val(),
+                    term: request.term
+                },
+                success: function(data) {
+                    response($.map(data, function(item) {
+                        return {
+                            label: item.name,
+                            value: item.name,
+                            id: item.id
+                        }
+                    }));
+                    //return response(data);
+                }
+            });
+        }
+    });
 
     function slide_left() {
         let $parent = $('.corousel-container .slider-arrow .previous').parent()
@@ -122,10 +144,11 @@ $(document).ready(function() {
 
     $('.corousel-container .row').on("mouseenter", function() {
         isSliderPaused = true;
-    })
+    });
+
     $('.corousel-container .row').on("mouseleave", function() {
         isSliderPaused = false;
-    })
+    });
 
     populateProcessorBrandDropDown();
 });

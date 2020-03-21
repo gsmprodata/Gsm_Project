@@ -25,11 +25,11 @@ def get_filter_processor_brands():
 @app.route(f"{filters.controller}{filters.action.getprocessorbybrand}", methods=['GET'])
 def get_filter_processor(): 
     brandid = request.args.get('brandid')
-
-    if not(brandid == None):
-        processors = processor.query.with_entities(processor.id , processor.name).filter(processor.processor_brand_id==brandid and processor.is_active == true).all()
+    filter = f"%{str(request.args.get('term'))}%"
+    if not(brandid == None) and brandid.strip() != "":
+        processors = processor.query.with_entities(processor.id , processor.name).filter(processor.name.ilike(filter)).filter(processor.processor_brand_id==brandid and processor.is_active == true).limit(10).all()
     else:
-        processors = processor.query.with_entities(processor.id , processor.name).limit(10).all()
+        processors = processor.query.with_entities(processor.id , processor.name).filter( processor.name.ilike(filter)).limit(10).all()
     list = []
     for item in processors:
         processr={"name":item.name,"id":item.id}
