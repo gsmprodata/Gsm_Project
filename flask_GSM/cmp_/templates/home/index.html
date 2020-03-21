@@ -1,8 +1,34 @@
-{% extends "shared/base.html" %}
+ {% extends "shared/base.html" %}
 
 <!-- navbar end -->
-{% block content %}
+{% block content %} {% assets "filter_css" %}
+<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"> {% endassets %}
 
+<div class="container-block ">
+    {% assets "filter_js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    <input id="hdnInpFilterUrls" type="hidden" data-Processor-Brands-Url="{{ url_for('get_filter_processor_brands') }}" />
+    <div class="filter-heading">
+        <h2>
+            Filter Phones
+        </h2>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="ui-widget form-group">
+                <label for="ddlProcessorBrand"><b>Processor Brand: </b></label>
+                <select id="ddlProcessorBrand" class="form-control"></select>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+    <div class="row ">
+        <div id="divFilterPhones"></div>
+
+    </div>
+</div>
 
 <div class="corousel-container" style="background-image:url('{{url_for('static',filename='imgfiles/Background/corousel_image.jpg')  }}')">
     <div class=" trending-phones-heading ">
@@ -58,6 +84,8 @@
         <br>
 
     </div>
+    {% assets "autoslider_js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 </div>
-<script src="{{ url_for('static',filename='jquery/phone_slider/auto_slider.js')}}"></script>
 {% endblock %}

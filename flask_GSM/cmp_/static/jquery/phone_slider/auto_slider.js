@@ -2,6 +2,20 @@ $(document).ready(function() {
     var animateDelay = 300;
     var autoScrollTimer = 1500;
     var isSliderPaused = false;
+    var processorBrandUrl = $('#hdnInpFilterUrls').data('processorBrandsUrl')
+
+    function populateProcessorBrandDropDown() {
+        $.ajax({
+            type: "GET",
+            url: processorBrandUrl,
+            data: { 'value': search_val },
+            // dataType:"json",
+            success: function(data) {},
+            error: function(data) {
+                alert('error');
+            }
+        });
+    }
 
     function slide_left() {
         let $parent = $('.corousel-container .slider-arrow .previous').parent()

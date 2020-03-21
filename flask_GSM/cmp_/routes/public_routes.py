@@ -74,4 +74,3 @@ def compare_phone():
     jsonData['nav'] = nav
     return render_template('phone_details/compare.html', jsonData = jsonData)
 
-

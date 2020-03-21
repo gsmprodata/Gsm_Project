@@ -9,7 +9,7 @@ from cmp_ import app
 from cmp_.routes.url_string import filters
 
 @app.route(f"{filters.controller}{filters.action.getprocessorbrands}", methods=['GET'])
-def get_processor_brands(): 
+def get_filter_processor_brands(): 
     brand_name = request.args.get('value')
 
     if not(brand_name == None):
@@ -23,7 +23,7 @@ def get_processor_brands():
     return jsonify(list)
 
 @app.route(f"{filters.controller}{filters.action.getprocessorbybrand}", methods=['GET'])
-def get_processor(): 
+def get_filter_processor(): 
     brandid = request.args.get('brandid')
 
     if not(brandid == None):

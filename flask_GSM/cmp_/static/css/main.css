@@ -468,3 +468,8 @@ body>.container {
     overflow: scroll;
     min-height: unset;
 }
+
+.filter-heading {
+    padding-left: 10px;
+    color: #494848;
+}
