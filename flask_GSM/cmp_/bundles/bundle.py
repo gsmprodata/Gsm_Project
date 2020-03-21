@@ -12,7 +12,7 @@ assets.register('filter_js', filter_js)
 filter_css = Bundle('jquery/jquery-ui-1.12.1.custom/jquery-ui.min.css', filters='cssmin',  output='gen/css/filter.css' )
 assets.register('filter_css', filter_css)
 
-autoslider_js = Bundle('jquery/phone_slider/auto_slider.js', filters='jsmin',  output='gen/jquery/auto_slider.js' )
+autoslider_js = Bundle('jquery/phone_slider/auto_slider.js',   output='gen/jquery/auto_slider.js' )
 assets.register('autoslider_js', autoslider_js)
 
 main_css = Bundle('css/main.css', 'css/responsive-mobile.css', 'css/responsive-tablet.css', filters='cssmin',  output='gen/css/main.css' )

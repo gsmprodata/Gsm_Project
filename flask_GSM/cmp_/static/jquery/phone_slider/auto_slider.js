@@ -8,9 +8,14 @@ $(document).ready(function() {
         $.ajax({
             type: "GET",
             url: processorBrandUrl,
-            data: { 'value': search_val },
             // dataType:"json",
-            success: function(data) {},
+            success: function(data) {
+                let options = '<option>Select</option>';
+                $.each(data, function(key, item) {
+                    options += `<option value="${item.id}">${item.name}</option>`;
+                });
+                $('#ddlProcessorBrand').html(options);
+            },
             error: function(data) {
                 alert('error');
             }
@@ -121,4 +126,6 @@ $(document).ready(function() {
     $('.corousel-container .row').on("mouseleave", function() {
         isSliderPaused = false;
     })
+
+    populateProcessorBrandDropDown();
 });
