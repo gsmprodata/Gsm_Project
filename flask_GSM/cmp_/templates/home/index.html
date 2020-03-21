@@ -4,10 +4,6 @@
 {% block content %} {% assets "filter_css" %}
 <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"> {% endassets %}
 <style>
-    .ui-autocomplete-loading {
-        background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
-    }
-    
     ul.ui-menu {
         background: rgb(246, 246, 246)
     }
@@ -34,6 +30,7 @@
             <div class="ui-widget form-group">
                 <label for="ddlProcessor"><b>Processor: </b></label>
                 <input id="ddlProcessor" class="form-control" />
+                <input id="hdnProcessorVal" type="hidden" />
             </div>
         </div>
     </div>

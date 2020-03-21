@@ -38,9 +38,11 @@ $(document).ready(function() {
                             id: item.id
                         }
                     }));
-                    //return response(data);
                 }
             });
+        },
+        select: function(event, ui) {
+            $("#hdnProcessorVal").val(ui.item.id);
         }
     });
 
