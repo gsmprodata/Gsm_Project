@@ -84,7 +84,7 @@ def paginate(request, query):
     page_range_median = int(page_range/2)
     is_next = True
     current_page = 1
-    page_size = 20
+    page_size = 10
     count = query.count()
     pages_list = []
     

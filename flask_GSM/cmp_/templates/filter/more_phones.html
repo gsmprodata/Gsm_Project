@@ -1,0 +1,13 @@
+{% for i in pagination['data'] %}
+<div class=" block-content" style="padding-bottom: 5px;">
+    <div class="card">
+
+        <a href="{{ url_for('phone_details',device_brand=i.brand,slug=i.slug,pro_id=i.id)}}"><img class="card-img-top" src="{{ url_for('static',filename='imgfiles/'+i.img_name)}}" alt="Card image"></a>
+        <div class="card-body">
+            <!-- <h4 class="card-title">{{i.name}}</h4> -->
+            <p class="card-text">{{i.name}}</p>
+            <!-- <a href="#" class="btn btn-primary">See Profile</a>  -->
+        </div>
+    </div>
+</div>
+{% endfor %}

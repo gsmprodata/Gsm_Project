@@ -35,3 +35,21 @@ def get_filter_processor():
         processr={"name":item.name,"id":item.id}
         list.append(processr)
     return jsonify(list)
+
+@app.route(f"{filters.controller}{filters.action.getfilterdevice}")
+def get_filter_device():
+    processorid = request.args.get('processorid')
+    pagination = paginate(request ,
+                    db.session.query(allpro).filter(allpro.processor_id==processorid).filter(allpro.release_date != None)
+                    .order_by(allpro.release_date.desc()).order_by(allpro.id))
+    
+    return render_template ('filter/allpro.html', pagination = pagination)
+
+@app.route(f"{filters.controller}{filters.action.getmorefilterdevice}")
+def get_more_filter_device():
+    processorid = request.args.get('processorid')
+    pagination = paginate(request ,
+                    db.session.query(allpro).filter(allpro.processor_id==processorid).filter(allpro.release_date != None)
+                    .order_by(allpro.release_date.desc()).order_by(allpro.id))
+    
+    return render_template ('filter/more_phones.html', pagination = pagination)

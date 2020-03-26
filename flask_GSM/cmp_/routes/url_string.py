@@ -3,3 +3,5 @@ class filters:
     class action:
         getprocessorbrands = "/getProcessorBrands"
         getprocessorbybrand = "/getProcessorByBrand"
+        getfilterdevice = "/getFilterDevice"
+        getmorefilterdevice = "/getmorefilterdevice"

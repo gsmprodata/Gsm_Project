@@ -12,7 +12,8 @@
     {% assets "filter_js" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
-    <input id="hdnInpFilterUrls" type="hidden" data-Processor-Brands-Url="{{ url_for('get_filter_processor_brands') }}" data-Processor-Url="{{ url_for('get_filter_processor') }}" />
+    <input id="hdnInpFilterUrls" type="hidden" data-Processor-Brands-Url="{{ url_for('get_filter_processor_brands') }}" data-Processor-Url="{{ url_for('get_filter_processor') }}" data-Filter-Url="{{ url_for('get_filter_device') }}" data-Filter-More-Url="{{ url_for('get_more_filter_device') }}"
+    />
     <div class="filter-heading">
         <h2>
             Filter Phones
@@ -38,6 +39,7 @@
             <button class="btn btn-primary " id="btnFilterPhone" type="button">Search</button>
         </div>
     </div>
+    <div id="loadFilteredPhones"></div>
 </div>
 
 <div class="corousel-container" style="background-image:url('{{url_for('static',filename='imgfiles/Background/corousel_image.jpg')  }}')">

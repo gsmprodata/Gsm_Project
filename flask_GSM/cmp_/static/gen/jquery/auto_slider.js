@@ -2,8 +2,10 @@ $(document).ready(function() {
     var animateDelay = 300;
     var autoScrollTimer = 1500;
     var isSliderPaused = false;
-    var processorBrandUrl = $('#hdnInpFilterUrls').data('processorBrandsUrl')
-    var processorUrl = $('#hdnInpFilterUrls').data('processorUrl')
+    var processorBrandUrl = $('#hdnInpFilterUrls').data('processorBrandsUrl');
+    var processorUrl = $('#hdnInpFilterUrls').data('processorUrl');
+    var filterUrl = $('#hdnInpFilterUrls').data('filterUrl');
+    var filterMoreUrl = $('#hdnInpFilterUrls').data('filterMoreUrl');
 
     function populateProcessorBrandDropDown() {
         $.ajax({
@@ -33,6 +35,41 @@ $(document).ready(function() {
                     options += `<option value="${item.id}">${item.name}</option>`;
                 });
                 $('#ddlProcessor').html(options);
+            },
+            error: function(data) {
+                alert('error');
+            }
+        });
+    }
+
+    function loadFilteredPhones(processorId) {
+        $.ajax({
+            type: "GET",
+            data: {
+                processorid: processorId,
+                page: 1
+            },
+            url: filterUrl,
+            success: function(data) {
+                $('#loadFilteredPhones').html(data);
+            },
+            error: function(data) {
+                alert('error');
+            }
+        });
+    }
+
+    function loadMoreFilteredPhones(processorId, pageNumber) {
+        $.ajax({
+            type: "GET",
+            data: {
+                processorid: processorId,
+                page: pageNumber
+            },
+            url: filterMoreUrl,
+            success: function(data) {
+                $('#divFilteredPhones').html($('#divFilteredPhones').html() + data);
+                $("#hdnPageNumber").val(parseInt($("#hdnPageNumber").val()) + 1);
             },
             error: function(data) {
                 alert('error');
@@ -150,6 +187,18 @@ $(document).ready(function() {
         let brandId = $(e.target).val();
         populateProcessorDropDown(brandId);
     });
+
+    $('#btnFilterPhone').on("click", function(e) {
+        let processorId = $('#ddlProcessor').val();
+        loadFilteredPhones(processorId);
+    });
+
+    $('#loadFilteredPhones').on("click", "#btnLoadMorePhones", function(e) {
+        let processorId = $('#ddlProcessor').val();
+        let pageNumber = $("#hdnPageNumber").val();
+        loadMoreFilteredPhones(processorId, pageNumber);
+    });
+
 
     populateProcessorBrandDropDown();
 });
