@@ -1,0 +1,10 @@
+UPDATE Processor 
+SET is_active = false
+WHERE id in (SELECT processor_id  from home_allpro where release_year <= 2018)
+
+UPDATE Processor 
+SET is_active = true
+WHERE id in (SELECT processor_id  from home_allpro where release_year >= 2019)
+
+
+
