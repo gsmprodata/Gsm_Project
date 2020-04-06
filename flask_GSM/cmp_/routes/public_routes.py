@@ -24,7 +24,7 @@ def home():
     title = "Mobile Phones | Mobile Prices in India | Online Mobile Shopping | phoneworldz.com"
     nav = db.session.query(brand).all()
     top_phones_json = get_top_phones()
-    return render_template('home/index.html',nav=nav, top_phone_json = top_phones_json,title=title)
+    return render_template('home/index.html',nav=nav, top_phone_json = top_phones_json,title=title,metadata={'title':title})
 
 
 @app.route('/<string:brand_name>')
@@ -35,7 +35,8 @@ def brandinfo(brand_name):
                     .order_by(allpro.release_date.desc()).order_by(allpro.id))
     
     title = title_function(brand_name)
-    return render_template ('brands/allpro.html',nav=nav, pagination = pagination, brand = brand_name,title=title)
+    return render_template ('brands/allpro.html',nav=nav, pagination = pagination, brand = brand_name,title=title,metadata={'brand':brand_name,'title':title})
+    
 
 @app.route('/<string:device_brand>/<string:slug>/<int:pro_id>')
 def phone_details(device_brand,slug,pro_id):
@@ -45,7 +46,7 @@ def phone_details(device_brand,slug,pro_id):
     brand_name = jsonData['brand_name']
     phone_name = jsonData['name']
     title = title_function(phone_name,brand_name)
-    return render_template("phone_details/detail.html",jsonData=jsonData,nav=nav,title=title)
+    return render_template("phone_details/detail.html",jsonData=jsonData,nav=nav,title=title,metadata={'brand':brand_name,'phone':phone_name,'title':title})
 
 @app.route('/search_phone',methods=['GET'])
 def search_phone():
