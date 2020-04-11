@@ -21,8 +21,9 @@ def name_check(lst,strr):
 def is_exist(tb_name):
     cur.execute(f"SELECT to_regclass('{tb_name}')")
     return bool(cur.fetchall()[0][0])
-
-with open(os.path.join(str(os.getcwd()),'log.txt'),'w') as txtFile:
+log_path = os.path.join(str(os.getcwd()),'log.txt')
+print(log_path)
+with open(log_path,'w') as txtFile:
     conn = psycopg2.connect(user="postgres",
                             password = "Phon*Wor!d@123",
                             host = '51.15.202.105',
@@ -75,8 +76,12 @@ with open(os.path.join(str(os.getcwd()),'log.txt'),'w') as txtFile:
             for no in range(len(nameLst)):
                 if name_check(array_name,nameLst[no]):
                     fk_name = nameLst[no]
-                    feat_arr = feat[no].split('|')
-                    print(feat_arr[1])
+                    try:
+                        feat_arr = feat[no].split('|')
+                    except:
+                        txtFile.write(f"error occured on spliting ({fk_name})"+'\n')
+                        continue
+
                     #ram
                     try:
                         ram_size = re.findall('\d+',feat_arr[0])[0]
