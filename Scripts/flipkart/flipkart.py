@@ -35,19 +35,20 @@ with open(os.path.join(str(os.getcwd()),'log.txt'),'w') as txtFile:
     # sys.exit()
     fkp_table = 'public.fkp'
 
-    allProQuery = "select name,brand from public.home_allpro where release_year =2018 order by (id)"
+    allProQuery = "select name,brand,id from public.home_allpro where release_year =2018 order by (id)"
     if(is_exist(fkp_table)):
         cur.execute("select dbname from public.fkp  order by(id) desc limit 1")
         lastphone =cur.fetchall()[0][0]
         cur.execute(f"select id from public.home_allpro where  name='{lastphone}'")
         lastPhoneId = cur.fetchall()[0][0]
         print(lastPhoneId)
-        allProQuery = f"select name,brand from public.home_allpro where release_year =2018 and id>{lastPhoneId} order by (id)"
+        allProQuery = f"select name,brand,id from public.home_allpro where release_year =2018 and id>{lastPhoneId} order by (id)"
 
 
     txtFile.write("table dropped"+'\n')
-
-    # cur.execute("create table public.fkp(id serial NOT NULL,dbname varchar(255) ,fk_name varchar(255) ,brand varchar(255) ,ram varchar(255) ,ram_type varchar(255) ,rom varchar(255) ,rom_type varchar(255),price integer,PRIMARY KEY(id))")
+    if(not is_exist(fkp_table)):
+        cur.execute("create table public.fkp(id serial NOT NULL,dbname varchar(255) ,fk_name varchar(255) ,brand varchar(255) ,ram varchar(255) ,ram_type varchar(255) ,rom varchar(255) ,rom_type varchar(255),price integer,PRIMARY KEY(id))")
+        conn.commit()
    
 
     # sys.exit()
@@ -59,9 +60,10 @@ with open(os.path.join(str(os.getcwd()),'log.txt'),'w') as txtFile:
 
 
         db_name = name= i[0]
+        if 'watch' in db_name.lower():
+            continue
         brand = i[1]
         array_name = name.split(' ')
-        # sys.exit()
         url_name = urllib.parse.quote(name)
         url = r'https://www.flipkart.com/search?q='+str(url_name)
         htmlstr = r.get(url)
