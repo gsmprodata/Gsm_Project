@@ -1,0 +1,5 @@
+ALTER TABLE Home_allpro
+ADD Column fk_linktried boolean
+
+UPDATE home_allpro
+Set fk_linktried = false

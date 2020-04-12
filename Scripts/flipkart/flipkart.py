@@ -10,6 +10,8 @@ import os
 
 print(os.getcwd())
 
+year = 2020
+
 def name_check(lst,strr):
     flag = True
     for i in lst:
@@ -36,14 +38,10 @@ with open(log_path,'w') as txtFile:
     # sys.exit()
     fkp_table = 'public.fkp'
 
-    allProQuery = "select name,brand,id from public.home_allpro where release_year =2018 order by (id)"
+    allProQuery = "select name,brand,id from public.home_allpro where release_year={year} order by (id)"
     if(is_exist(fkp_table)):
-        cur.execute("select dbname from public.fkp  order by(id) desc limit 1")
-        lastphone =cur.fetchall()[0][0]
-        cur.execute(f"select id from public.home_allpro where  name='{lastphone}'")
-        lastPhoneId = cur.fetchall()[0][0]
-        print(lastPhoneId)
-        allProQuery = f"select name,brand,id from public.home_allpro where release_year =2018 and id>{lastPhoneId} order by (id)"
+
+        allProQuery = f"select name,brand,id from public.home_allpro where release_year ={year} and fk_linktried=false order by (id)"
 
 
     txtFile.write("table dropped"+'\n')
@@ -58,20 +56,29 @@ with open(log_path,'w') as txtFile:
     for i in allPro:
         print(i)
 
-
-
         db_name = name= i[0]
+        checkQuery = f"select count(1) from public.fkp where dbname = '{db_name}'"
+        cur.execute(checkQuery)
+        phonecount = cur.fetchall()[0][0]
+        if phonecount > 0:
+            continue
         if 'watch' in db_name.lower():
             continue
         brand = i[1]
         array_name = name.split(' ')
         url_name = urllib.parse.quote(name)
-        url = r'https://www.flipkart.com/search?q='+str(url_name)
+        url = r'https://www.flipkart.com/mobiles/pr?sid=tyy%2C4io&q='+str(url_name)
         htmlstr = r.get(url)
         tree = html.fromstring(htmlstr.text)
         nameLst = tree.xpath("//div[@class='_3wU53n']/text()")
         feat = tree.xpath("//ul[@class='vFw0gD']/li[1]/text()")
         price = tree.xpath("//div[@class='_1vC4OE _2rQ-NK']/text()")
+
+        update = "UPDATE home_allpro SET fk_linktried=%s WHERE name=%s"
+        data_to_insert = (True, db_name)
+        cur.execute(update,data_to_insert)
+        conn.commit()
+
         if len(nameLst) >0:
             for no in range(len(nameLst)):
                 if name_check(array_name,nameLst[no]):
@@ -126,11 +133,12 @@ with open(log_path,'w') as txtFile:
                         insert = "INSERT INTO public.fkp(dbname, fk_name, brand, ram, ram_type, rom, rom_type, price)VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
                         data_to_insert = (db_name,fk_name,brand,ram_size,ram_type,rom_size,rom_type,fk_price)
                         cur.execute(insert,data_to_insert)
-                        conn.commit()
+
+                        
                     except:
                         txtFile.write(f"error occured at insertion({fk_name})"+'\n')
 
-            time.sleep(2)
+            time.sleep(5)
 
 
 
