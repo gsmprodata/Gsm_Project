@@ -11,7 +11,11 @@ from random import randint
 
 	
 try:
-    conn = psycopg2.connect(host="localhost",database="gsm_new", user="postgres", password="postgres")
+    conn = psycopg2.connect(user="postgres",
+                            password = "Phon*Wor!d@123",
+                            host = '51.15.202.105',
+                            port = '5432',
+                            database ='gsm_dev_test')
     cur = conn.cursor()
     print('connection done')
 except:
@@ -216,15 +220,14 @@ brand_names = doc.xpath('//div[@class="brandmenu-v2 light l-box clearfix"]/ul/li
 index_val = max_id()+1
 skip_check = True
 for (brand_link,brand_name) in zip(brand_list,brand_names):
-    if(brand_name == 'Nokia'):
-        skip_check = False
-    if skip_check:
-        continue
     pages=[]
+    isunique = True
     pages.append(brand_link)
     pages.extend(pagination_links(complete_link(brand_link)))
     for page in pages:
-        rand_home = randint(20, 30)
+        if isunique == False:
+            break
+        rand_home = randint(10, 15)
         time.sleep(rand_home)
         page_html = extract_page(complete_link(page))
         # page_html = extract_page('https://www.gsmarena.com/samsung_galaxy_a70s-9899.php')
@@ -237,7 +240,7 @@ for (brand_link,brand_name) in zip(brand_list,brand_names):
                 print(error)
             if(unique_urlcheck(phone_checkarr)):
                 # phone_url = complete_link('https://www.gsmarena.com/samsung_galaxy_a70s-9899.php')
-                rand_home = randint(20, 30)
+                rand_home = randint(11, 14)
                 time.sleep(rand_home)
                 phone_url = complete_link(phone_link)
                 phone_page_html = extract_page(phone_url)
@@ -271,7 +274,7 @@ for (brand_link,brand_name) in zip(brand_list,brand_names):
                         img_name = img_name.replace('/','_')
                         image_download(img_name,img_url)
                     false = False
-                    insert = f"INSERT INTO public.home_allpro(id,network, launch, body, display, platform, memory, maincamera, selfiecamera, sound, comms, features, battery, misc, brand, name, img_name, head, flipkart_url, link_tried) VALUES ({index_val},'{network}','{launch}','{body}','{display}','{platform}','{memory}','{main_camera}','{selfie_camera}','{sound}','{comms}','{feature}','{battery}','{misc}','{brand}','{name}','{img_name}','{head}','{''}','{false}')"
+                    insert = f"INSERT INTO public.home_allpro(id,network, launch, body, display, platform, memory, maincamera, selfiecamera, sound, comms, features, battery, misc, brand, name, img_name, head, flipkart_url, link_tried, flipkartname) VALUES ({index_val},'{network}','{launch}','{body}','{display}','{platform}','{memory}','{main_camera}','{selfie_camera}','{sound}','{comms}','{feature}','{battery}','{misc}','{brand}','{name}','{img_name}','{head}','{''}','{false}','{name}')"
 
                     try:
                         print(F'trying to insert phone name {name}')
@@ -281,8 +284,13 @@ for (brand_link,brand_name) in zip(brand_list,brand_names):
                         print('data entered')
                     except (Exception, psycopg2.DatabaseError) as error:
                         print(error)
-                        
-
+                else: 
+                    isunique = False
+                    break    
+            else:
+                isunique = False
+                break
+                
 
 
 

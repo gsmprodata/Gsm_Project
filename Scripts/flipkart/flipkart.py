@@ -38,10 +38,10 @@ with open(log_path,'w') as txtFile:
     # sys.exit()
     fkp_table = 'public.fkp'
 
-    allProQuery = "select name,brand,id from public.home_allpro where release_year={year} order by (id)"
+    allProQuery = "select flipkartname,brand,id from public.home_allpro where release_year={year} order by (id)"
     if(is_exist(fkp_table)):
 
-        allProQuery = f"select name,brand,id from public.home_allpro where release_year ={year} and fk_linktried=false order by (id)"
+        allProQuery = f"select flipkartname,brand,id from public.home_allpro where release_year ={year} and fk_linktried=false order by (id)"
 
 
     txtFile.write("table dropped"+'\n')
