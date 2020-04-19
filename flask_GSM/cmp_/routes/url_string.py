@@ -5,3 +5,4 @@ class filters:
         getprocessorbybrand = "/getProcessorByBrand"
         getfilterdevice = "/getFilterDevice"
         getmorefilterdevice = "/getmorefilterdevice"
+        getsearchedphonelist = "/getsearchedphonelist"

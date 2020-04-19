@@ -1,17 +1,14 @@
  {% extends "shared/base.html" %}
 
 <!-- navbar end -->
-{% block content %} {% assets "filter_css" %}
-<link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}"> {% endassets %}
+{% block content %}
 <style>
     ul.ui-menu {
         background: rgb(246, 246, 246)
     }
 </style>
 <div class="container-block ">
-    {% assets "filter_js" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
+
     <input id="hdnInpFilterUrls" type="hidden" data-Processor-Brands-Url="{{ url_for('get_filter_processor_brands') }}" data-Processor-Url="{{ url_for('get_filter_processor') }}" data-Filter-Url="{{ url_for('get_filter_device') }}" data-Filter-More-Url="{{ url_for('get_more_filter_device') }}"
     />
     <div class="filter-heading">

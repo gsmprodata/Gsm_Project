@@ -41,7 +41,7 @@ with open(log_path,'w') as txtFile:
     allProQuery = "select flipkartname,brand,id from public.home_allpro where release_year={year} order by (id)"
     if(is_exist(fkp_table)):
 
-        allProQuery = f"select flipkartname,brand,id from public.home_allpro where release_year ={year} and fk_linktried=false order by (id)"
+        allProQuery = f"select flipkartname,brand,id from public.home_allpro where release_year ={year} and (fk_linktried=false OR fk_linktried is null)  order by (id)"
 
 
     txtFile.write("table dropped"+'\n')
@@ -74,10 +74,10 @@ with open(log_path,'w') as txtFile:
         feat = tree.xpath("//ul[@class='vFw0gD']/li[1]/text()")
         price = tree.xpath("//div[@class='_1vC4OE _2rQ-NK']/text()")
 
-        update = "UPDATE home_allpro SET fk_linktried=%s WHERE name=%s"
-        data_to_insert = (True, db_name)
-        cur.execute(update,data_to_insert)
-        conn.commit()
+        # update = "UPDATE home_allpro SET fk_linktried=%s WHERE name=%s"
+        # data_to_insert = (True, db_name)
+        # cur.execute(update,data_to_insert)
+        # conn.commit()
 
         if len(nameLst) >0:
             for no in range(len(nameLst)):
@@ -134,7 +134,11 @@ with open(log_path,'w') as txtFile:
                         data_to_insert = (db_name,fk_name,brand,ram_size,ram_type,rom_size,rom_type,fk_price)
                         cur.execute(insert,data_to_insert)
 
-                        
+                        update = "UPDATE home_allpro SET fk_linktried=%s WHERE name=%s"
+                        data_to_insert = (True, db_name)
+                        cur.execute(update,data_to_insert)
+                        conn.commit()
+
                     except:
                         txtFile.write(f"error occured at insertion({fk_name})"+'\n')
 

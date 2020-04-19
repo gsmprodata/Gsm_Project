@@ -2,6 +2,7 @@
       var count = $('.abc div');
       var searchUrl = $('#inpUrls').data('searchUrl');
       var compareUrl = $('#inpUrls').data('compareUrl');
+      var seachNavUrl = $('#inpUrls').data('searchNavUrl');
       for (i = 8; i < count.length; i++) {
           $(".col-md-3:nth-child(" + i + ")").hide();
       }
@@ -119,5 +120,23 @@
           var selected_device = $('#selected_1').attr('find');
           // var second_phone_id = $('#selected_2').attr('find');
           alert(selected_device)
+      });
+
+      $("#search_phone_outer").autocomplete({
+          source: function(request, response) {
+              let search_val = $('#search_phone_outer').val();
+              $.ajax({
+                  url: seachNavUrl,
+                  data: { "value": search_val },
+                  success: function(data) {
+                      response(data);
+                  }
+              });
+          },
+          minLength: 2,
+          select: function(event, ui) {
+              url = `/phone_details/${ui.item.value}/${ ui.item.id}`;
+              location.href = url;
+          }
       });
   });

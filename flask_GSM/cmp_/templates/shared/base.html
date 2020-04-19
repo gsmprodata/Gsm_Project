@@ -44,7 +44,11 @@
         })(window, document, 'script', 'dataLayer', 'GTM-TRNPC2F');
     </script>
     <!-- End Google Tag Manager -->
-
+    <style>
+        ul.ui-menu {
+            background: rgb(246, 246, 246)
+        }
+    </style>
 </head>
 
 <body style="background-image:url('{{url_for('static',filename='imgfiles/Background/background.jpg')  }}')">
@@ -69,8 +73,8 @@
         </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Brands
-          </a>
+                        Brands
+                    </a>
                     <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                         {% for i in nav %}
                         <a class="dropdown-item dpd" href="{{ url_for('brandinfo',brand_name=i.name, page=1,size=20)}}">{{i.name}}</a> {% endfor %}
@@ -81,14 +85,17 @@
                 <li class="nav-item">
                     <a class="nav-link" id="compare_dd" data-toggle="modal" data-target="#phone_compare" href="#">compare</a>
                 </li>
-                <!-- <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li> -->
+                <li class="nav-item nav-search">
+                    <div class="input-group">
+                        <input id="search_phone_outer" type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i>
+                          </button>
+                        </div>
+                    </div>
+                </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-                <button class="btn btn-outline-success my-2 my-sm-0 outline-btn" data-toggle="modal" data-target="#myModal" type="button">Search</button>
-            </form>
         </div>
     </nav>
     <!-- navbar end -->
@@ -231,7 +238,7 @@
     <!--end compare modalbox  -->
     <!-- Data Fields for ajax calls -->
 
-    <input id="inpUrls" type="hidden" data-Search-Url="{{ url_for('search_phone') }}" data-Compare-Url="{{ url_for('compare_phone') }}" />
+    <input id="inpUrls" type="hidden" data-Search-Url="{{ url_for('search_phone') }}" data-Compare-Url="{{ url_for('compare_phone') }}" data-Search-Nav-Url="{{ url_for('gets_phonelistbyname') }}" />
 
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
