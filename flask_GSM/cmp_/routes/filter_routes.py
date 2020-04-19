@@ -53,3 +53,15 @@ def get_more_filter_device():
                     .order_by(allpro.release_date.desc()).order_by(allpro.id))
     
     return render_template ('filter/more_phones.html', pagination = pagination)
+
+@app.route(f"{filters.controller}{filters.action.getsearchedphonelist}")
+def gets_phonelistbyname():
+    query = '%'+str(request.args.get('value'))+'%'
+    print(query)
+    # sys.exit()
+    suggestion = db.session.query(allpro).filter(allpro.name.ilike(query)).limit(10).all()
+    list = []
+    for i in suggestion:
+        abc={"value":i.name, "label":i.name, "id":i.id}
+        list.append(abc)
+    return jsonify(list)
