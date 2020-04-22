@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/mac"
+$VIRTUAL_ENV = r"/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/ser"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

@@ -1,4 +1,4 @@
-#!/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/mac/bin/python
+#!/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/ser/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/mac'
+VIRTUAL_ENV='/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/ser'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

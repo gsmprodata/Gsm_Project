@@ -10,7 +10,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV '/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/mac'
+setenv VIRTUAL_ENV '/Users/anujkanojia/Desktop/projects/Gsm_Project/flask_GSM/ser'
 
 set _OLD_VIRTUAL_PATH="$PATH:q"
 setenv PATH "$VIRTUAL_ENV:q/bin:$PATH:q"
