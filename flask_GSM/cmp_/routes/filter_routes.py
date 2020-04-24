@@ -62,6 +62,6 @@ def gets_phonelistbyname():
     suggestion = db.session.query(allpro).filter(allpro.name.ilike(query)).limit(10).all()
     list = []
     for i in suggestion:
-        abc={"value":i.name, "label":i.name, "id":i.id}
+        abc={"value":i.name, "label":i.name, "id":i.id,"brand":i.brand,"slug":i.slug}
         list.append(abc)
     return jsonify(list)

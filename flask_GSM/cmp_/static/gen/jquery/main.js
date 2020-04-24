@@ -29,7 +29,7 @@
                       data = JSON.parse(data);
                       console.log(typeof(data));
                       for (i = 0; i < data.length; i++) {
-                          ul.append(`<li><a href="/phone_details/${data[i].name}/${data[i].id}"> ${data[i].name} </a> </li>`);
+                          ul.append(`<li><a href="/phone_details/${data[i].brand}/${data[i].slug}/${data[i].slug}"> ${data[i].name} </a> </li>`);
                           // console.log(data.length);
                       }
                   },
@@ -135,7 +135,7 @@
           },
           minLength: 2,
           select: function(event, ui) {
-              url = `/phone_details/${ui.item.value}/${ ui.item.id}`;
+              url = `/${ui.item.brand}/${ ui.item.slug}/${ ui.item.id}`;
               location.href = url;
           }
       });
