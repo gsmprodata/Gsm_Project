@@ -28,4 +28,13 @@
     .margin-right-30 {
         margin: unset!important;
     }
+    .menudropdown-content {
+        left: 15%;
+    }
+    .menucolumn {
+        width: 200px;
+    }
+    .image-navbar {
+        margin-left: 8%;
+    }
 }

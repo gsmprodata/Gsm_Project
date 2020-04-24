@@ -1,5 +1,10 @@
 body {
-    background-color: #ececec;
+    background-color: #fff;
+    background: linear-gradient(141deg, #ffffff 10%, #dbdbdb 40%, #ffffff 80%);
+}
+
+html {
+    font-size: 15px;
 }
 
 body>.container {
@@ -74,7 +79,36 @@ body>.container {
 }
 
 .navbar {
-    background-color: #24435d!important;
+    background-color: #fff!important;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    color: #6c7278!important;
+    font-weight: 600;
+    width: 35%;
+}
+
+.nav-item a {
+    font-weight: 700;
+    font-size: 17px;
+    ;
+}
+
+.navbar-brand:hover {
+    color: #545759!important;
+}
+
+nav {
+    transition-duration: 1s;
+    z-index: 50000;
+    filter: brightness(105%);
+    background-color: #fff;
+    font-family: Quicksand, Ubuntu;
+    -webkit-box-shadow: 0 0;
+    box-shadow: 0 0;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(150, 150, 150, 0.1), 0 3px 1px -2px rgba(150, 150, 155, 0.12), 0 1px 5px 0 rgba(150, 150, 150, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(150, 150, 150, 0.1), 0 3px 1px -2px rgba(150, 150, 155, 0.12), 0 1px 5px 0 rgba(150, 150, 150, 0.2);
 }
 
 .outline-btn {
@@ -130,11 +164,17 @@ body>.container {
     border-radius: 4px;
     display: inline-block;
     transition: all .2s ease-in-out;
+    box-shadow: 2px 2px 2px grey;
 }
 
 .content-inline:hover {
     box-shadow: 5px 5px 5px grey;
     transform: scale(1.1);
+}
+
+.btn-nav-search {
+    border: 0px solid #272b34;
+    background: #738484;
 }
 
 .padding-brands {
@@ -145,7 +185,7 @@ body>.container {
 .page-footer {
     padding-top: unset!important;
     background-position: 50% 50%;
-    background-color: #272c35;
+    background-color: #131627;
 }
 
 .page-footer .container {
@@ -230,6 +270,7 @@ body>.container {
 .block-content .card {
     padding-top: 1rem;
     border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
 }
 
 .block-content .card a {
@@ -248,7 +289,7 @@ body>.container {
 }
 
 .block-content .card:hover {
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 5px grey !important;
     transform: scale(1.02);
 }
 
@@ -296,11 +337,11 @@ body>.container {
 
 .corousel-container .row .card {
     min-width: 160px;
-    border: 0;
     flex-basis: 33.333%;
     flex-grow: 0;
     flex-shrink: 0;
     min-height: 310px;
+    box-shadow: 2px 2px 2px grey;
 }
 
 .corousel-container {
@@ -312,6 +353,8 @@ body>.container {
     padding-top: 1.5rem;
     border-radius: 10px;
     margin: 10px 10px 10px 10px;
+    background: #fefefe;
+    box-shadow: 1px 1px 1px 1px grey;
 }
 
 .corousel-container .row .block-content {
@@ -322,13 +365,14 @@ body>.container {
 }
 
 .container-block {
-    background: #ececec;
+    background: #fefefe;
     margin: 10px 10px 10px 10px;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
     border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px grey;
 }
 
 .container-block .row {
@@ -475,8 +519,25 @@ body>.container {
 }
 
 .nav-search {
-    min-width: 250px;
+    min-width: 500px;
     padding: 0 10px 0 10px;
+}
+
+.nav-search .input-group {
+    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-item .ui-autocomplete-input {
+    height: 45px;
+}
+
+.nav-search .input-group:hover {
+    box-shadow: 5px 5px 5px grey;
+}
+
+.input-group-append {
+    background: #738484;
 }
 
 .search-container button {
@@ -488,4 +549,153 @@ body>.container {
     font-size: 17px;
     border: none;
     cursor: pointer;
+}
+
+
+/*Fashn Css*/
+
+.menubar {
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Quicksand' !important;
+    margin-top: 0px;
+    z-index: 1000;
+    border-bottom: 0.5px solid rgba(100, 100, 100, 0.3);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(150, 150, 150, 0.1), 0 3px 1px -2px rgba(150, 150, 155, 0.12), 0 1px 5px 0 rgba(150, 150, 150, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(150, 150, 150, 0.1), 0 3px 1px -2px rgba(150, 150, 155, 0.12), 0 1px 5px 0 rgba(150, 150, 150, 0.2);
+    white-space: nowrap;
+    text-overflow: hidden;
+}
+
+.menubar h6 {
+    font-weight: 550;
+    font-size: 17px!important;
+    color: #10b2ef;
+}
+
+.menubar>a {
+    float: left;
+    font-size: 17px;
+    color: white;
+    text-align: center;
+    padding: 9px 15px;
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+}
+
+.menudropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.menudropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    padding: 10px 11px;
+    background-color: inherit;
+    margin: 0;
+    color: #222;
+    font-weight: 600;
+}
+
+.menubar a:hover,
+.menudropdown:hover .dropbtn {
+    background-color: #10b2ef;
+    color: #fff;
+}
+
+.menudropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100000;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-top: -5px;
+    left: 10%;
+}
+
+.menudropdown-content.celebrity img {
+    height: 200px;
+}
+
+.menudropdown-content .header {
+    background: #10b2ef;
+    padding: 17px;
+    color: white;
+}
+
+.menudropdown:hover .menudropdown-content {
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Create three equal menucolumns that floats next to each other */
+
+.menucolumn {
+    float: left;
+    padding: 10px;
+    background-color: white;
+    width: 250px;
+}
+
+.menucolumn a {
+    float: none;
+    color: #484848;
+    padding: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.menucolumn a:hover {
+    background-color: #fff;
+    /*color:#10b2ef;*/
+    background: #12c2e9;
+    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+
+/* Clear floats after the menucolumns */
+
+.menubar .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ul.ui-autocomplete {
+    z-index: 9999999
+}
+
+.image-navbar {
+    margin: .54%;
+    margin-bottom: 20px;
+    margin-left: 15%;
+    border: 1px solid #ccc;
+    background: #fff;
+    width: 150px;
+    height: 150px;
+    min-height: 100px;
+    border-radius: 4px;
+    transition: all .2s ease-in-out;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.image-navbar:hover {
+    box-shadow: 5px 5px 5px grey;
+    transform: scale(1.1);
 }

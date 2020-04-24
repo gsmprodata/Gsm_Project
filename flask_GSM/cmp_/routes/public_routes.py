@@ -1,6 +1,6 @@
 from flask import Flask, escape, request,render_template,url_for,flash,redirect,request,abort, Blueprint
 from flask_sqlalchemy import SQLAlchemy
-from cmp_.helper.helper import filterPhoneDetails, paginate
+from cmp_.helper.helper import filterPhoneDetails, paginate, seperate_brands
 import sys, json
 from cmp_ import app
 from cmp_.db import brand, allpro, top_phones, db
@@ -24,6 +24,7 @@ def home():
     title = "Mobile Phones | Mobile Prices in India | Online Mobile Shopping | phoneworldz.com"
     nav = db.session.query(brand).all()
     top_phones_json = get_top_phones()
+    nav = seperate_brands(nav)
     return render_template('home/index.html',nav=nav, top_phone_json = top_phones_json,title=title,metadata={'title':title})
 
 
@@ -35,6 +36,7 @@ def brandinfo(brand_name):
                     .order_by(allpro.release_date.desc()).order_by(allpro.id))
     
     title = title_function(brand_name)
+    nav = seperate_brands(nav)
     return render_template ('brands/allpro.html',nav=nav, pagination = pagination, brand = brand_name,title=title,metadata={'brand':brand_name,'title':title})
     
 
@@ -46,6 +48,7 @@ def phone_details(device_brand,slug,pro_id):
     brand_name = jsonData['brand_name']
     phone_name = jsonData['name']
     title = title_function(phone_name,brand_name)
+    nav = seperate_brands(nav)
     return render_template("phone_details/detail.html",jsonData=jsonData,nav=nav,title=title,metadata={'brand':brand_name,'phone':phone_name,'title':title})
 
 @app.route('/search_phone',methods=['GET'])
@@ -70,6 +73,7 @@ def compare_phone():
     phoneTwoId = request.args.get('phone2')
     dataPhoneOne = filterPhoneDetails(db.session.query(allpro).get_or_404(phoneOneId))
     dataPhoneTwo = filterPhoneDetails(db.session.query(allpro).get_or_404(phoneTwoId))
+    nav = seperate_brands(nav)
     jsonData = {}
     jsonData['phones']  = [dataPhoneOne, dataPhoneTwo]
     jsonData['nav'] = nav

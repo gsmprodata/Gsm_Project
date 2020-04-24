@@ -34,6 +34,20 @@
     .margin-right-30 {
         margin: unset!important;
     }
+    .nav-search {
+        min-width: 350px;
+        padding: 0 10px 0 10px;
+    }
+    .navbar-brand {
+        font-size: 25px;
+    }
+    .menubar {
+        display: none;
+    }
+    .menubar .menucolumn {
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -42,6 +56,10 @@
         margin-left: 7.5%;
         margin-right: 7.5%;
         min-height: 100px;
+    }
+    .nav-search {
+        min-width: 300px;
+        padding: 0 10px 0 10px;
     }
     .corousel-container .right-arrow,
     .corousel-container .left-arrow {

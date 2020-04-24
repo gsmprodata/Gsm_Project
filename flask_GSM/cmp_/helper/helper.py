@@ -159,3 +159,19 @@ def is_mobile(ua):
         is_valid = True
     
     return is_valid
+
+def seperate_brands(nav):
+    count = 0
+    data = []
+    inner_data = []
+    for brand in nav:
+        count +=1
+        if(count%6 != 0):
+            inner_data.append(brand)
+        else:
+            data.append(inner_data)
+            inner_data = []
+    
+    if(count%6 != 0):
+        data.append(inner_data)
+    return data
