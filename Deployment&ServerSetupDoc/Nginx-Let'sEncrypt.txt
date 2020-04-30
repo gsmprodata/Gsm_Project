@@ -1,0 +1,11 @@
+1. sudo add-apt-repository ppa:certbot/certbot
+
+2. apt install python-certbot-nginx
+
+3. Setup the NGINX script with server name.
+
+4. systemctl reload nginx
+
+5. ufw enable (In case UFW status inactive)
+
+6. certbot --nginx -d example.com -d www.example.com (When Asked for redirection choose 2 so that configuration file will be changed)

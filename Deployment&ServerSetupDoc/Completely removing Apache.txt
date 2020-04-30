@@ -1,0 +1,4 @@
+--apt-get remove apache2*
+
+--remove configurations too
+--apt-get purge apache2

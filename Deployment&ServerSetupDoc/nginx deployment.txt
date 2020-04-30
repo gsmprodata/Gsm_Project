@@ -1,0 +1,6 @@
+1. /etc/init.d/nginx start
+2.rm /etc/nginx/sites-enabled/default
+
+3.touch /etc/nginx/sites-available/flask_settings
+
+4. ln -s /etc/nginx/sites-available/flask_Settings  /etc/nginx/sites-enabled/flask_settings

@@ -1,0 +1,20 @@
+1. Changes in etc/Postgres/main/postgresql.config
+
+	#listen_addresses = 'localhost' to
+	----------
+	listen_addresses = '*'
+
+2. Changes in etc/Postgres/main/pg_hba.config
+	local   replication     all                                     peer
+	host    replication     all             127.0.0.1/32            md5
+	host    replication     all             ::1/128                 md54
+
+to 
+	#local   replication     all                                     peer
+	#host    replication     all             127.0.0.1/32            md5
+	#host    replication     all             ::1/128                 md54
+	host    all	        all		0.0.0.0/0		md5
+
+
+3. Restart postgres server using command service postgresql stop then service postgresql start
+

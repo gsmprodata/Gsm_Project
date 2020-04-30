@@ -1,0 +1,4 @@
+1. source Phone_world/env/bin/activate.
+2. cd flask_gsm
+3. gunicorn --worker=5 run:app
+4. rm -rf cmp_

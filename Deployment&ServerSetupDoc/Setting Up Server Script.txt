@@ -1,0 +1,29 @@
+1. Install Python 3.8 --> 
+	sudo apt update
+	sudo apt install software-properties-common
+	sudo apt isntall python3.8
+
+2. Install NGINX 
+	sudo apt install nginx
+
+3. create solution folder and setup virtual env.
+	sudo apt install pyhton3-pip
+	sudo apt install -y python3-venv
+	sudo python3 -m venv phoneworldz_env
+
+4. Activate virtual env
+	soruce phoneworldz/bin/activate
+
+5. Install postgres 
+	sudo apt install postgresql postgresql-contrib
+
+5. Make Postgres Open and change password
+	sudo -s
+	sudo -u postgres psql postgres
+	\password postgres 
+
+6. sudo systemctl restart firewalld.service
+
+7. sudo firewall-cmd --permanent --zone=public --add-service=https
+
+8 open other firewalls too.
